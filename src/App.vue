@@ -1,19 +1,40 @@
 <template>
   <div id="app">
-    <div id="content">
-      <Salzlos />
-    </div>
+    <Salzlos v-if="store.state.view === 'main'" :store="store" />
   </div>
 </template>
 
 <script>
 import Salzlos from "./components/Salzlos.vue";
 
+const store = {
+  debug: 1,
+  state: {
+    view: "main",
+    showWorkpiece: 0,
+  },
+  settings: {
+    workpieces: 2,
+  },
+  nextWorkpiece: function() {
+    if (this.debug) console.log("Next workpiece triggered...");
+    this.state.showWorkpiece =
+      (this.state.showWorkpiece + 1) % (this.settings.workpieces + 1);
+  },
+};
+
+// window.setInterval(() => store.nextWorkpiece(), 100);
+
 export default {
   name: "App",
   components: {
-    Salzlos
-  }
+    Salzlos,
+  },
+  data: function() {
+    return {
+      store,
+    };
+  },
 };
 </script>
 
@@ -72,17 +93,5 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #000000;
-}
-
-#content {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  background-image: url("assets/bg.jpg");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
 }
 </style>
