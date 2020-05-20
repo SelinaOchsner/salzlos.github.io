@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: "Workpiece",
+  name: "Workpiece"
 };
 </script>
 
@@ -12,5 +12,5 @@ export default {
 .workpiece
   width: 50%
   height: 50%
-  background-color: black
+  background-color: white
 </style>

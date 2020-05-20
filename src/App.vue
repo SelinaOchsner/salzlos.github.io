@@ -1,40 +1,13 @@
 <template>
-  <div id="app">
-    <Salzlos v-if="store.state.view === 'main'" :store="store" />
+  <div id="app" class="noselect">
+    <!-- <Salzlos v-if="store.state.view === 'main'" :store="store" /> -->
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Salzlos from "./components/Salzlos.vue";
-
-const store = {
-  debug: 1,
-  state: {
-    view: "main",
-    showWorkpiece: 0,
-  },
-  settings: {
-    workpieces: 2,
-  },
-  nextWorkpiece: function() {
-    if (this.debug) console.log("Next workpiece triggered...");
-    this.state.showWorkpiece =
-      (this.state.showWorkpiece + 1) % (this.settings.workpieces + 1);
-  },
-};
-
-// window.setInterval(() => store.nextWorkpiece(), 100);
-
 export default {
-  name: "App",
-  components: {
-    Salzlos,
-  },
-  data: function() {
-    return {
-      store,
-    };
-  },
+  name: "App"
 };
 </script>
 
@@ -84,6 +57,15 @@ body {
   margin: 0;
 }
 
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 #app {
   position: absolute;
   width: 100%;
@@ -92,6 +74,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #000000;
+  color: white;
 }
 </style>

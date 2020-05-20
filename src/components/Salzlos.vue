@@ -1,18 +1,10 @@
 <template>
-  <div
-    id="salzlos"
-    :class="{ colorized: isColorized, black: isBlack }"
-    @click="store.nextWorkpiece()"
-  >
-    <div
-      v-if="store.state.showWorkpiece == 0"
-      id="main-header"
-      class="noselect"
-    >
+  <div id="salzlos" :class="{ colorized: isColorized, black: isBlack }" @click="nextWorkpiece()">
+    <div v-if="viewIndex == 0" id="main-header" class="noselect">
       <h2 class="s0 noselect">SELINA SALZLOS</h2>
     </div>
-    <Workpiece v-if="store.state.showWorkpiece == 1" />
-    <Workpiece v-if="store.state.showWorkpiece == 2" />
+    <Workpiece v-if="viewIndex == 1" />
+    <Workpiece v-if="viewIndex == 2" />
   </div>
 </template>
 
@@ -22,17 +14,27 @@ import Workpiece from "./Workpiece.vue";
 export default {
   name: "Salzlos",
   components: {
-    Workpiece,
+    Workpiece
   },
-  props: ["store"],
+  data: function() {
+    return {
+      viewIndex: 0,
+      totalViews: 3
+    };
+  },
   computed: {
     isColorized: function() {
-      return this.store.state.showWorkpiece <= 1;
+      return this.viewIndex <= 1;
     },
     isBlack: function() {
       return !this.isColorized;
-    },
+    }
   },
+  methods: {
+    nextWorkpiece: function() {
+      this.viewIndex = (this.viewIndex + 1) % this.totalViews;
+    }
+  }
 };
 </script>
 
@@ -45,6 +47,7 @@ export default {
   flex-direction: row
   align-items: center
   justify-content: space-around
+  color: white
 #main-header
   display: flex
   flex-direction: row
@@ -64,7 +67,7 @@ export default {
   background-repeat: no-repeat
   background-size: 100% 100%
 .black
-  background-color: black
+  background-color: white
   background-size: 100% 100%
 .noselect
   -webkit-touch-callout: none
