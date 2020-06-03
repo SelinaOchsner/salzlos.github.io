@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: "App"
+  name: "App",
 };
 </script>
 
@@ -48,6 +48,25 @@ export default {
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
     U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
     U+FEFF, U+FFFD;
+}
+
+@import url("https://p.typekit.net/p.css?s=1&k=fxz7yuv&ht=tk&f=14582&a=16950649&app=typekit&e=css");
+
+@font-face {
+  font-family: "letter-gothic-std";
+  src: url("https://use.typekit.net/af/7676e3/000000000000000000012e1b/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3")
+      format("woff2"),
+    url("https://use.typekit.net/af/7676e3/000000000000000000012e1b/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3")
+      format("woff"),
+    url("https://use.typekit.net/af/7676e3/000000000000000000012e1b/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3")
+      format("opentype");
+  font-display: auto;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.tk-letter-gothic-std {
+  font-family: "letter-gothic-std", monospace;
 }
 
 html,

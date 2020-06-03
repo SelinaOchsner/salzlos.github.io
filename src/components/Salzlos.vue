@@ -1,8 +1,6 @@
 <template>
   <div id="salzlos" :class="{ colorized: isColorized, black: isBlack }" @click="nextWorkpiece()">
-    <div v-if="viewIndex == 0" id="main-header" class="noselect">
-      <h2 class="s0 noselect">SELINA SALZLOS</h2>
-    </div>
+    <SalzlosLogo v-if="viewIndex == 0" />
     <Workpiece v-if="viewIndex == 1" />
     <Workpiece v-if="viewIndex == 2" />
   </div>
@@ -10,11 +8,13 @@
 
 <script>
 import Workpiece from "./Workpiece.vue";
+import SalzlosLogo from "./SalzlosLogo.vue";
 
 export default {
   name: "Salzlos",
   components: {
-    Workpiece
+    Workpiece,
+    SalzlosLogo
   },
   data: function() {
     return {
@@ -32,7 +32,10 @@ export default {
   },
   methods: {
     nextWorkpiece: function() {
-      this.viewIndex = (this.viewIndex + 1) % this.totalViews;
+      if (++this.viewIndex == this.totalViews) {
+        this.viewIndex = 0;
+        this.$router.push({ path: "shop" });
+      }
     }
   }
 };
@@ -48,20 +51,9 @@ export default {
   align-items: center
   justify-content: space-around
   color: white
-#main-header
-  display: flex
-  flex-direction: row
-  justify-content: space-around
-  align-items: flex-end
-  transform: scaleX(3.5) scaleY(2)
-#main-header h2
-  display: block
+.header
   font-size: 3em
   margin: 0
-.s0
-  transform: scaleY(3)
-.s1
-  transform: scaleY(2)
 .colorized
   background-image: url("../assets/bg.jpg")
   background-repeat: no-repeat
@@ -76,4 +68,6 @@ export default {
   -moz-user-select: none
   -ms-user-select: none
   user-select: none
+.salzlos-logo
+  transform: scaleX(3.5) scaleY(6)
 </style>

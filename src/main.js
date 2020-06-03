@@ -4,6 +4,14 @@ import App from "./App.vue";
 import Salzlos from "./components/Salzlos.vue";
 import Shop from "./components/Shop.vue";
 
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faShoppingBag } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+
+library.add(faShoppingBag);
+
+Vue.component("fa-icon", FontAwesomeIcon);
+
 Vue.config.productionTip = false;
 
 Vue.use(VueRouter);
