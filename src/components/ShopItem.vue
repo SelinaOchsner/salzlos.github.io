@@ -1,24 +1,20 @@
 <template>
   <div class="shop-item" @click="toggleDetails">
-    <img :src="imageUrl" :alt="name" />
+    <img :src="product.imageUrl" :alt="product.name" />
     <div class="shop-description">
-      <span class="left">{{ name }}</span>
-      <span class="right">{{ price }}</span>
+      <span class="left">{{ product.name }}</span>
+      <span class="right">{{ product.price }}</span>
     </div>
-    <div class="slot-text">
-      <slot></slot>
-    </div>
+    <div class="slot-text">{{ product.description }}</div>
     <div v-if="showDetails" class="shop-item-details" @click="toggleDetails">
       <div class="details-image" :style="style"></div>
       <div class="details-description">
-        <h1>{{ name }}</h1>
-        Price: {{ price }}
+        <h1>{{ product.name }}</h1>
+        Price: {{ product.price }}
         <br />
         <br />
-        <div class="details-slot">
-          <slot></slot>
-        </div>
-        <Button @clicked="store.addItem(name)">
+        <div class="details-slot">{{ product.description }}</div>
+        <Button @clicked="addProductToCart(product)">
           <fa-icon icon="shopping-bag" size="lg" />
         </Button>
       </div>
@@ -27,6 +23,8 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 import Button from "./Button.vue";
 
 export default {
@@ -34,7 +32,7 @@ export default {
   components: {
     Button,
   },
-  props: ["imageUrl", "name", "price", "store"],
+  props: ["product"],
   data: function() {
     return {
       showDetails: false,
@@ -45,10 +43,11 @@ export default {
       event.stopPropagation();
       this.showDetails = !this.showDetails;
     },
+    ...mapActions("cart", ["addProductToCart"]),
   },
   computed: {
     style: function() {
-      return 'background-image: url("' + this.imageUrl + '")';
+      return 'background-image: url("' + this.product.imageUrl + '")';
     },
   },
 };
