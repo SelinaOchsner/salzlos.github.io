@@ -3,10 +3,15 @@ import shop from "../../shop/products";
 // initial state
 const state = () => ({
   all: [],
+  details: [],
 });
 
 // getters
-const getters = {};
+const getters = {
+  showDetailsForId: (state) => {
+    return state.details[0];
+  },
+};
 
 // actions
 const actions = {
@@ -14,6 +19,14 @@ const actions = {
     shop.getProducts((products) => {
       commit("setProducts", products);
     });
+  },
+
+  showDetails(context, product) {
+    context.commit("addDetails", { id: product.id });
+  },
+
+  hideDetails({ commit }, product) {
+    commit("removeDetails", { id: product.id });
   },
 };
 
@@ -26,6 +39,14 @@ const mutations = {
   decrementProductInventory(state, { id }) {
     const product = state.all.find((product) => product.id === id);
     product.inventory--;
+  },
+
+  addDetails(state, { id }) {
+    state.details.unshift(id);
+  },
+
+  removeDetails(state, { id }) {
+    state.details = state.details.filter((el) => el !== id);
   },
 };
 

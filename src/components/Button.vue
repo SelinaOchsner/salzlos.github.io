@@ -9,7 +9,7 @@ export default {
   name: "Button",
   data: function() {
     return {
-      isHighlighted: false,
+      isHighlighted: false
     };
   },
   methods: {
@@ -23,19 +23,18 @@ export default {
         }.bind(this),
         150
       );
-    },
-  },
+    }
+  }
 };
 </script>
 
 <style lang="sass" scoped>
-$size: 50px
+$size: 40px
 $border-size: 0.2rem
 
 .button
   display: inline-flex
   position: relative
-  opacity: 0.8
   flex-direction: row
   align-items: center
   justify-content: space-around
@@ -46,8 +45,8 @@ $border-size: 0.2rem
   border-width: $border-size
   border-style: solid
   border-color: black
-.highlighted
   background-color: white
-  border-color: black
-  opacity: 1
+  color: #000000cc
+.highlighted
+  color: #000000ff
 </style>

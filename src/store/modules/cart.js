@@ -15,6 +15,7 @@ const getters = {
       return {
         name: product.name,
         price: product.price,
+        thumbnail: product.thumbnail,
         quantity,
       };
     });

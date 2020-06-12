@@ -1,8 +1,7 @@
 <template>
   <div id="shop" class="colorized">
     <SalzlosLogo />
-    <ShoppingCart />
-    <ProductList />
+    <router-view></router-view>
   </div>
 </template>
 
@@ -10,25 +9,22 @@
 import { mapState } from "vuex";
 
 import SalzlosLogo from "./SalzlosLogo";
-import ShoppingCart from "./Cart";
-import ProductList from "./ProductList";
 
 export default {
   name: "Shop",
   components: {
-    SalzlosLogo,
-    ShoppingCart,
-    ProductList,
+    SalzlosLogo
   },
   computed: mapState({
-    products: (state) => state.products.all,
-  }),
+    products: state => state.products.all
+  })
 };
 </script>
 
 <style lang="sass" scoped>
 #shop
   padding-bottom: 100px
+  min-height: calc(100% - 100px)
 .colorized
   background-image: url("../assets/bg.jpg")
   background-repeat: no-repeat

@@ -1,20 +1,28 @@
 <template>
-  <div class="shop-item" @click="toggleDetails">
+  <div class="shop-item" @click="showDetails(product)">
     <img :src="product.imageUrl" :alt="product.name" />
     <div class="shop-description">
       <span class="left">{{ product.name }}</span>
       <span class="right">{{ product.price }}</span>
     </div>
     <div class="slot-text">{{ product.description }}</div>
-    <div v-if="showDetails" class="shop-item-details" @click="toggleDetails">
+    <div
+      v-if="showDetailsForId == product.id"
+      class="shop-item-details"
+      @click.stop="hideDetails(product)"
+    >
       <div class="details-image" :style="style"></div>
       <div class="details-description">
-        <h1>{{ product.name }}</h1>
+        <h1>{{ product.name.toUpperCase() }}</h1>
+        <hr />
         Price: {{ product.price }}
         <br />
         <br />
         <div class="details-slot">{{ product.description }}</div>
-        <Button @clicked="addProductToCart(product)">
+        <Button class="button-close" @clicked="hideDetails(product)">
+          <fa-icon icon="times" size="lg" />
+        </Button>
+        <Button class="button-bag" @clicked="addProductToCart(product)">
           <fa-icon icon="shopping-bag" size="lg" />
         </Button>
       </div>
@@ -23,33 +31,32 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 
-import Button from "./Button.vue";
+import Button from "./Button";
 
 export default {
   name: "ShopItem",
   components: {
-    Button,
+    Button
   },
   props: ["product"],
-  data: function() {
-    return {
-      showDetails: false,
-    };
-  },
   methods: {
     toggleDetails: function(event) {
       event.stopPropagation();
       this.showDetails = !this.showDetails;
     },
     ...mapActions("cart", ["addProductToCart"]),
+    ...mapActions("products", ["showDetails", "hideDetails"])
   },
   computed: {
     style: function() {
       return 'background-image: url("' + this.product.imageUrl + '")';
     },
-  },
+    ...mapGetters("products", {
+      showDetailsForId: "showDetailsForId"
+    })
+  }
 };
 </script>
 
@@ -77,10 +84,6 @@ export default {
     height: 300px
 .shop-item-details
   position: fixed
-  // display: inline-flex
-  // flex-direction: row
-  // align-items: center
-  // justify-content: space-around
   top: 15%
   left: 15%
   width: calc(70% - 10px)
@@ -103,10 +106,21 @@ export default {
   height: calc(100% - 100px)
   vertical-align: top
   padding: 50px
+  h1
+    font-size: 40px !important
+  hr
+    border: black solid 1px
   .details-slot
     display: inline-block
     position: absolute
     bottom: 50px
     left: calc(50% + 50px)
     right: 50px
+.button-close
+  position: absolute
+  top: 0px
+  margin: 10px
+  right: 0px
+.button-bag
+  margin: 0px
 </style>
