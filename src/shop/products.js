@@ -6,6 +6,7 @@ const _products = [
     description: "Toller Ring 503 Silber, 3",
     price: 200,
     imageUrl: "http://via.placeholder.com/400x300",
+    thumbnail: "https://via.placeholder.com/70",
     inventory: 1,
   },
   {
@@ -14,6 +15,7 @@ const _products = [
     description: "Kette aus Ringen",
     price: 100,
     imageUrl: "http://via.placeholder.com/400x300",
+    thumbnail: "https://via.placeholder.com/70",
     inventory: 1,
   },
   {
@@ -22,6 +24,7 @@ const _products = [
     description: "Die Brosche wurde aus purem Gold gefertigt. Mit einer Feile.",
     price: 1000,
     imageUrl: "http://via.placeholder.com/400x300",
+    thumbnail: "https://via.placeholder.com/70",
     inventory: 1,
   },
   {
@@ -30,6 +33,7 @@ const _products = [
     description: "Die Brosche wurde aus purem Gold gefertigt. Mit einer Feile.",
     price: 1000,
     imageUrl: "http://via.placeholder.com/400x300",
+    thumbnail: "https://via.placeholder.com/70",
     inventory: 1,
   },
 ];
