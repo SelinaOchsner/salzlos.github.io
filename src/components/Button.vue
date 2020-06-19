@@ -9,7 +9,7 @@ export default {
   name: "Button",
   data: function() {
     return {
-      isHighlighted: false
+      isHighlighted: false,
     };
   },
   methods: {
@@ -23,14 +23,14 @@ export default {
         }.bind(this),
         150
       );
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style lang="sass" scoped>
 $size: 40px
-$border-size: 0.2rem
+$border-size: 3px
 
 .button
   display: inline-flex

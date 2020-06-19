@@ -16,7 +16,7 @@ const _products = [
     price: 100,
     imageUrl: "http://via.placeholder.com/400x300",
     thumbnail: "https://via.placeholder.com/70",
-    inventory: 1,
+    inventory: 10,
   },
   {
     id: 3,
@@ -40,7 +40,7 @@ const _products = [
 
 export default {
   getProducts(cb) {
-    setTimeout(() => cb(_products), 100);
+    setTimeout(() => cb(JSON.parse(JSON.stringify(_products))), 100);
   },
   // buyProducts(products, cb, errorCb) {
   //   setTimeout(() => {

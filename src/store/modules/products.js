@@ -15,9 +15,16 @@ const getters = {
 
 // actions
 const actions = {
-  getAllProducts({ commit }) {
+  getAllProducts({ commit, rootState }) {
     shop.getProducts((products) => {
       commit("setProducts", products);
+      rootState.cart.items.map((cartItem) => {
+        const product = products.find((product) => product.id === cartItem.id);
+        commit("setProductInventory", {
+          id: cartItem.id,
+          inventory: product.inventory - cartItem.quantity,
+        });
+      });
     });
   },
 
@@ -36,9 +43,19 @@ const mutations = {
     state.all = products;
   },
 
+  setProductInventory(state, { id, inventory }) {
+    const product = state.all.find((product) => product.id === id);
+    product.inventory = inventory;
+  },
+
   decrementProductInventory(state, { id }) {
     const product = state.all.find((product) => product.id === id);
     product.inventory--;
+  },
+
+  incrementProductInventory(state, { id }) {
+    const product = state.all.find((product) => product.id === id);
+    product.inventory++;
   },
 
   addDetails(state, { id }) {

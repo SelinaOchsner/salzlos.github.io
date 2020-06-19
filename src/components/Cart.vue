@@ -1,6 +1,6 @@
 <template>
   <div id="shopping-cart">
-    <Button @clicked="$router.push({path: '/shop'})">
+    <Button @clicked="$router.push({ path: '/shop' })">
       <fa-icon icon="times" size="lg" />
     </Button>
     <span v-if="products.length < 1">Your shopping cart is empty.</span>
@@ -11,7 +11,14 @@
         </td>
         <td>{{ product.name }}</td>
         <td>{{ product.quantity }}</td>
-        <td>{{ product.price }}</td>
+        <td>{{ product.price }}EUR</td>
+        <td>
+          <fa-icon
+            @click="removeProductFromCart(product)"
+            icon="times"
+            size="lg"
+          />
+        </td>
       </tr>
     </table>
   </div>
@@ -20,19 +27,25 @@
 <script>
 import Button from "./Button";
 
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "ShoppingCart",
   components: {
-    Button
+    Button,
+  },
+  methods: {
+    ...mapActions("cart", ["removeProductFromCart"]),
   },
   computed: {
     ...mapGetters("cart", {
       products: "cartProducts",
-      totalPrice: "cartTotalPrice"
-    })
-  }
+      totalPrice: "cartTotalPrice",
+    }),
+  },
+  created: function() {
+    this.$store.dispatch("products/getAllProducts");
+  },
 };
 </script>
 

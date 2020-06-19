@@ -13,6 +13,7 @@ const getters = {
         (product) => product.id === id
       );
       return {
+        id: product.id,
         name: product.name,
         price: product.price,
         thumbnail: product.thumbnail,
@@ -63,6 +64,23 @@ const actions = {
       );
     }
   },
+
+  removeProductFromCart({ state, commit }, product) {
+    commit("setCheckoutStatus", null);
+    const cartItem = state.items.find((item) => item.id === product.id);
+    if (cartItem) {
+      if (cartItem.quantity > 1) {
+        commit("decrementItemQuantity", cartItem);
+      } else {
+        commit("removeItemFromCart", cartItem);
+      }
+      commit(
+        "products/incrementProductInventory",
+        { id: product.id },
+        { root: true }
+      );
+    }
+  },
 };
 
 // mutations
@@ -74,9 +92,23 @@ const mutations = {
     });
   },
 
+  setItemQuantity(state, { id, quantity }) {
+    const cartItem = state.items.find((item) => item.id == id);
+    cartItem.quantity = quantity;
+  },
+
   incrementItemQuantity(state, { id }) {
     const cartItem = state.items.find((item) => item.id === id);
     cartItem.quantity++;
+  },
+
+  decrementItemQuantity(state, { id }) {
+    const cartItem = state.items.find((item) => item.id === id);
+    cartItem.quantity--;
+  },
+
+  removeItemFromCart(state, { id }) {
+    state.items = state.items.filter((item) => item.id !== id);
   },
 
   setCartItems(state, { items }) {
