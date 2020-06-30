@@ -13,11 +13,7 @@
         <td>{{ product.quantity }}</td>
         <td>{{ product.price }}EUR</td>
         <td>
-          <fa-icon
-            @click="removeProductFromCart(product)"
-            icon="times"
-            size="lg"
-          />
+          <fa-icon @click="removeProductFromCart(product)" icon="times" size="lg" />
         </td>
       </tr>
     </table>
@@ -32,20 +28,20 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   name: "ShoppingCart",
   components: {
-    Button,
+    Button
   },
   methods: {
-    ...mapActions("cart", ["removeProductFromCart"]),
+    ...mapActions("cart", ["removeProductFromCart"])
   },
   computed: {
     ...mapGetters("cart", {
       products: "cartProducts",
-      totalPrice: "cartTotalPrice",
-    }),
+      totalPrice: "cartTotalPrice"
+    })
   },
   created: function() {
     this.$store.dispatch("products/getAllProducts");
-  },
+  }
 };
 </script>
 
@@ -53,7 +49,7 @@ export default {
 #shopping-cart
   display: inline-flex
   position: relative
-  width: calc(80% - 200px)
+  width: calc(80% - 100px)
   padding-top: 30px
   padding-bottom: 30px
   padding-left: 100px
