@@ -5,10 +5,11 @@ export default {
   getProducts(cb) {
     axios.get('http://localhost:8081/products').then((res) => cb(res.data));
   },
-  // buyProducts(products, cb, errorCb) {
-  //   setTimeout(() => {
-  //     // simulate random checkout failure.
-  //     Math.random() > 0.5 || navigator.webdriver ? cb() : errorCb();
-  //   }, 100);
-  // },
+
+  buyProducts(products, cb, errorCb) {
+    axios
+      .create('http://localhost:8081/order', products)
+      .then((res) => (res.status == 200 ? cb() : errorCb()))
+      .catch((error) => errorCb(error));
+  },
 };

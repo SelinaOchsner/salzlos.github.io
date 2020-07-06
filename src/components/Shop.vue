@@ -17,7 +17,10 @@ export default {
   },
   computed: mapState({
     products: state => state.products.all
-  })
+  }),
+  created: function() {
+    this.$store.dispatch("products/getAllProducts");
+  }
 };
 </script>
 

@@ -1,9 +1,10 @@
-import shop from "../../shop/products";
+import shop from '../../shop/products';
 
 // initial state
 const state = () => ({
   all: [],
   details: [],
+  isLoaded: false,
 });
 
 // getters
@@ -17,23 +18,24 @@ const getters = {
 const actions = {
   getAllProducts({ commit, rootState }) {
     shop.getProducts((products) => {
-      commit("setProducts", products);
+      commit('setProducts', products);
       rootState.cart.items.map((cartItem) => {
         const product = products.find((product) => product.id === cartItem.id);
-        commit("setProductInventory", {
+        commit('setProductInventory', {
           id: cartItem.id,
           inventory: product.inventory - cartItem.quantity,
         });
       });
+      commit('setProductsLoaded');
     });
   },
 
   showDetails(context, product) {
-    context.commit("addDetails", { id: product.id });
+    context.commit('addDetails', { id: product.id });
   },
 
   hideDetails({ commit }, product) {
-    commit("removeDetails", { id: product.id });
+    commit('removeDetails', { id: product.id });
   },
 };
 
@@ -64,6 +66,10 @@ const mutations = {
 
   removeDetails(state, { id }) {
     state.details = state.details.filter((el) => el !== id);
+  },
+
+  setProductsLoaded(state) {
+    state.isLoaded = true;
   },
 };
 

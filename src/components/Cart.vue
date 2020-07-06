@@ -1,47 +1,67 @@
 <template>
   <div id="shopping-cart">
-    <Button @clicked="$router.push({ path: '/shop' })">
+    <Button id="return-button" @clicked="$router.push({ path: '/shop' })">
       <fa-icon icon="times" size="lg" />
     </Button>
-    <span v-if="products.length < 1">Your shopping cart is empty.</span>
-    <table>
-      <tr v-for="product in products" :key="product.name">
-        <td>
-          <img :src="product.thumbnail" :alt="product.name" />
-        </td>
-        <td>{{ product.name }}</td>
-        <td>{{ product.quantity }}</td>
-        <td>{{ product.price }}EUR</td>
-        <td>
-          <fa-icon @click="removeProductFromCart(product)" icon="times" size="lg" />
-        </td>
-      </tr>
-    </table>
+    <span v-if="isLoaded && isEmpty">Your shopping cart is empty.</span>
+    <div id="shopping-cart-products" v-if="isLoaded">
+      <table>
+        <tr v-for="product in products" :key="product.name">
+          <td>
+            <img :src="product.thumbnail" alt="X" />
+          </td>
+          <td>{{ product.name }}</td>
+          <td>{{ product.quantity }}</td>
+          <td>{{ product.price }}EUR</td>
+          <td>
+            <fa-icon
+              class="button"
+              @click="removeProductFromCart(product)"
+              icon="times"
+              size="lg"
+            />
+          </td>
+        </tr>
+      </table>
+
+      <PayPal
+        v-if="!isEmpty"
+        :amount="totalPrice.toString()"
+        currency="EUR"
+        env="sandbox"
+      ></PayPal>
+    </div>
   </div>
 </template>
 
 <script>
-import Button from "./Button";
+import PayPal from 'vue-paypal-checkout';
 
-import { mapGetters, mapActions } from "vuex";
+import Button from './Button';
+
+import { mapState, mapGetters, mapActions } from 'vuex';
 
 export default {
-  name: "ShoppingCart",
+  name: 'ShoppingCart',
   components: {
-    Button
+    Button,
+    PayPal,
   },
   methods: {
-    ...mapActions("cart", ["removeProductFromCart"])
+    ...mapActions('cart', ['removeProductFromCart']),
   },
   computed: {
-    ...mapGetters("cart", {
-      products: "cartProducts",
-      totalPrice: "cartTotalPrice"
-    })
+    ...mapGetters('cart', {
+      products: 'cartProducts',
+      totalPrice: 'cartTotalPrice',
+    }),
+    ...mapState({
+      isLoaded: (state) => state.products.isLoaded,
+    }),
+    isEmpty() {
+      return this.products < 1;
+    },
   },
-  created: function() {
-    this.$store.dispatch("products/getAllProducts");
-  }
 };
 </script>
 
@@ -65,9 +85,11 @@ export default {
     text-align: left
     img
       margin-right: 80px
-.button
+#return-button
   position: absolute
   top: 0px
   right: 0px
   margin-top: 10px
+.button
+  opacity: 0.8
 </style>
