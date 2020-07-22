@@ -33,14 +33,18 @@ const getters = {
 
 // actions
 const actions = {
+  commenceCheckout({ commit, state }, products) {},
+
   checkout({ commit, state }, products) {
     const savedCartItems = [...state.items];
-    commit('setCheckoutStatus', null);
+    // commit('setCheckoutStatus', null);
     // empty cart
-    commit('setCartItems', { items: [] });
     shop.buyProducts(
       products,
-      () => commit('setCheckoutStatus', 'successful'),
+      () => {
+        commit('setCheckoutStatus', 'successful');
+        commit('setCartItems', { items: [] });
+      },
       () => {
         commit('setCheckoutStatus', 'failed');
         // rollback to the cart saved before sending the request

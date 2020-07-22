@@ -46,15 +46,14 @@ export default {
     PayPal
   },
   methods: {
-    paymentcompleted(event) {
-      console.log("completed");
-      console.log(event);
+    paymentcompleted() {
+      this.checkout(this.products);
     },
     paymentcancelled(event) {
       console.log("cancelled");
       console.log(event);
     },
-    ...mapActions("cart", ["removeProductFromCart"])
+    ...mapActions("cart", ["checkout", "removeProductFromCart"])
   },
   computed: {
     ...mapGetters("cart", {
