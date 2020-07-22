@@ -9,7 +9,7 @@ export default {
   name: "Button",
   data: function() {
     return {
-      isHighlighted: false,
+      isHighlighted: false
     };
   },
   methods: {
@@ -23,8 +23,8 @@ export default {
         }.bind(this),
         150
       );
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -40,8 +40,8 @@ $border-size: 3px
   justify-content: space-around
   margin-right: 2rem
   margin-left: 2rem
-  width: $size
-  height: $size
+  min-width: $size
+  min-height: $size
   border-width: $border-size
   border-style: solid
   border-color: black

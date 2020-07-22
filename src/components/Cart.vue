@@ -18,23 +18,15 @@
           </td>
         </tr>
       </table>
-
-      <PayPal
-        v-if="!isEmpty"
-        :amount="totalPrice.toString()"
-        :client="credentials"
-        currency="EUR"
-        env="sandbox"
-        @payment-completed="paymentcompleted"
-        @payment-cancelled="paymentcancelled"
-      ></PayPal>
+      <br />
+      <div id="order-button" @click="processOrder">
+        <b>O R D E R</b>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import PayPal from "vue-paypal-checkout";
-
 import Button from "./Button";
 
 import { mapState, mapGetters, mapActions } from "vuex";
@@ -42,22 +34,18 @@ import { mapState, mapGetters, mapActions } from "vuex";
 export default {
   name: "ShoppingCart",
   components: {
-    Button,
-    PayPal
+    Button
   },
   methods: {
-    paymentcompleted() {
-      this.checkout(this.products);
-    },
-    paymentcancelled(event) {
-      console.log("cancelled");
-      console.log(event);
+    processOrder() {
+      window.location.href = `mailto:info@salzlos.berlin?subject=order&body=${this.cartOrderString}`;
     },
     ...mapActions("cart", ["checkout", "removeProductFromCart"])
   },
   computed: {
     ...mapGetters("cart", {
       products: "cartProducts",
+      cartOrderString: "cartOrderString",
       totalPrice: "cartTotalPrice"
     }),
     ...mapState({
@@ -103,6 +91,10 @@ export default {
   top: 0px
   right: 0px
   margin-top: 10px
+#order-button
+  display: inline-block
+  border: 2px solid black
+  padding: 2px 10px 2px 10px
 .button
   opacity: 0.8
 </style>

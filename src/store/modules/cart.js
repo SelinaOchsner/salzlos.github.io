@@ -24,6 +24,28 @@ const getters = {
     });
   },
 
+  cartOrderString: (state, getters) => {
+    const cartProducts = getters.cartProducts;
+    const cartProductsString = cartProducts
+      .map(
+        (product) => `${product.name}%09${product.quantity}%09${product.price}`
+      )
+      .join('%0D%0A');
+    return `
+Hej liebes Salzlos Berlin,%0D%0A%0D%0A
+ich möchte gerne Schmuck bei dir kaufen!%0D%0A%0D%0A
+--- --- ---%0D%0A
+${cartProductsString}%0D%0A
+--- --- ---%0D%0A
+für insgesamt ${getters.cartTotalPrice} Euro.%0D%0A%0D%0A
+Bitte sende mir deinen Schmuck an die folgende Adresse:%0D%0A%0D%0A
+> Name%0D%0A
+> Adresse%0D%0A
+> Stadt%0D%0A%0D%0A
+Danke <3%0D%0A
+    `;
+  },
+
   cartTotalPrice: (state, getters) => {
     return getters.cartProducts.reduce((total, product) => {
       return total + product.price * product.quantity;
@@ -33,18 +55,14 @@ const getters = {
 
 // actions
 const actions = {
-  commenceCheckout({ commit, state }, products) {},
-
   checkout({ commit, state }, products) {
     const savedCartItems = [...state.items];
     // commit('setCheckoutStatus', null);
     // empty cart
+    commit('setCartItems', { items: [] });
     shop.buyProducts(
       products,
-      () => {
-        commit('setCheckoutStatus', 'successful');
-        commit('setCartItems', { items: [] });
-      },
+      () => commit('setCheckoutStatus', 'successful'),
       () => {
         commit('setCheckoutStatus', 'failed');
         // rollback to the cart saved before sending the request
