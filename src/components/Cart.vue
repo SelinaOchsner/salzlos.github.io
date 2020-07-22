@@ -5,19 +5,14 @@
     </Button>
     <span v-if="isLoaded && isEmpty">Your shopping cart is empty.</span>
     <div id="shopping-cart-products" v-if="isLoaded">
-      <table>
-        <tr v-for="product in products" :key="product.name">
-          <td>
-            <img :src="product.thumbnail" alt="X" />
-          </td>
-          <td>{{ product.name }}</td>
-          <td>{{ product.quantity }}</td>
-          <td>{{ product.price }}EUR</td>
-          <td>
-            <fa-icon class="button" @click="removeProductFromCart(product)" icon="times" size="lg" />
-          </td>
-        </tr>
-      </table>
+      <div class="shopping-cart-product" v-for="product in products" :key="product.name">
+        <div>
+          <img :src="product.thumbnail" alt="X" />
+        </div>
+        <div>{{product.name}}</div>
+        <div>{{product.quantity}}</div>
+        <div>{{product.price}}</div>
+      </div>
       <br />
       <div id="order-button" @click="processOrder">
         <b>O R D E R</b>
@@ -70,29 +65,34 @@ export default {
 #shopping-cart
   display: inline-flex
   position: relative
-  width: calc(80% - 100px)
+  width: calc(80% - 30px)
   padding-top: 30px
   padding-bottom: 30px
-  padding-left: 100px
+  padding-left: 30px
   flex-direction: row
   justify-content: flex-start
   color: black
   background-color: white
   font-family: "letter-gothic-std"
+#shopping-cart-products
+  width: 80%
+  margin-top: 30px
+  margin-bottom: 30px
+.shopping-cart-product
+  display: flex
+  flex-direction: row
+  justify-content: space-around
   img
     display: inline-block
-  td, th
-    padding: 0px 30px 0px 30px
-    text-align: left
-    img
-      margin-right: 80px
 #return-button
   position: absolute
   top: 0px
   right: 0px
   margin-top: 10px
 #order-button
-  display: inline-block
+  position: absolute
+  bottom: 20px
+  right: 100px
   border: 2px solid black
   padding: 2px 10px 2px 10px
 .button
