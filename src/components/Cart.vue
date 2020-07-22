@@ -14,12 +14,7 @@
           <td>{{ product.quantity }}</td>
           <td>{{ product.price }}EUR</td>
           <td>
-            <fa-icon
-              class="button"
-              @click="removeProductFromCart(product)"
-              icon="times"
-              size="lg"
-            />
+            <fa-icon class="button" @click="removeProductFromCart(product)" icon="times" size="lg" />
           </td>
         </tr>
       </table>
@@ -27,41 +22,60 @@
       <PayPal
         v-if="!isEmpty"
         :amount="totalPrice.toString()"
+        :client="credentials"
         currency="EUR"
         env="sandbox"
+        @payment-completed="paymentcompleted"
+        @payment-cancelled="paymentcancelled"
       ></PayPal>
     </div>
   </div>
 </template>
 
 <script>
-import PayPal from 'vue-paypal-checkout';
+import PayPal from "vue-paypal-checkout";
 
-import Button from './Button';
+import Button from "./Button";
 
-import { mapState, mapGetters, mapActions } from 'vuex';
+import { mapState, mapGetters, mapActions } from "vuex";
 
 export default {
-  name: 'ShoppingCart',
+  name: "ShoppingCart",
   components: {
     Button,
-    PayPal,
+    PayPal
   },
   methods: {
-    ...mapActions('cart', ['removeProductFromCart']),
+    paymentcompleted(event) {
+      console.log("completed");
+      console.log(event);
+    },
+    paymentcancelled(event) {
+      console.log("cancelled");
+      console.log(event);
+    },
+    ...mapActions("cart", ["removeProductFromCart"])
   },
   computed: {
-    ...mapGetters('cart', {
-      products: 'cartProducts',
-      totalPrice: 'cartTotalPrice',
+    ...mapGetters("cart", {
+      products: "cartProducts",
+      totalPrice: "cartTotalPrice"
     }),
     ...mapState({
-      isLoaded: (state) => state.products.isLoaded,
+      isLoaded: state => state.products.isLoaded
     }),
     isEmpty() {
       return this.products < 1;
-    },
+    }
   },
+  data: function() {
+    return {
+      credentials: {
+        sandbox:
+          "AUP2GZHM-a8ezi1eUrZfF93Hmrbiusi6e9UYx7_d5QJNix7h7ImOxj6VNozS1hYuYxFqE1FrvGXRPN7n"
+      }
+    };
+  }
 };
 </script>
 
