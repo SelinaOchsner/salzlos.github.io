@@ -5,13 +5,17 @@
     </Button>
     <span v-if="isLoaded && isEmpty">Your shopping cart is empty.</span>
     <div id="shopping-cart-products" v-if="isLoaded">
-      <div class="shopping-cart-product" v-for="product in products" :key="product.name">
+      <div
+        class="shopping-cart-product"
+        v-for="product in products"
+        :key="product.name"
+      >
         <div>
           <img :src="product.thumbnail" alt="X" />
         </div>
-        <div>{{product.name}}</div>
-        <div>{{product.quantity}}</div>
-        <div>{{product.price}}</div>
+        <div style="width: 200px;">{{ product.name }}</div>
+        <div>{{ product.quantity }}</div>
+        <div>{{ product.price }}</div>
       </div>
       <br />
       <div id="order-button" @click="processOrder">
@@ -22,42 +26,42 @@
 </template>
 
 <script>
-import Button from "./Button";
+import Button from './Button';
 
-import { mapState, mapGetters, mapActions } from "vuex";
+import { mapState, mapGetters, mapActions } from 'vuex';
 
 export default {
-  name: "ShoppingCart",
+  name: 'ShoppingCart',
   components: {
-    Button
+    Button,
   },
   methods: {
     processOrder() {
       window.location.href = `mailto:info@salzlos.berlin?subject=order&body=${this.cartOrderString}`;
     },
-    ...mapActions("cart", ["checkout", "removeProductFromCart"])
+    ...mapActions('cart', ['checkout', 'removeProductFromCart']),
   },
   computed: {
-    ...mapGetters("cart", {
-      products: "cartProducts",
-      cartOrderString: "cartOrderString",
-      totalPrice: "cartTotalPrice"
+    ...mapGetters('cart', {
+      products: 'cartProducts',
+      cartOrderString: 'cartOrderString',
+      totalPrice: 'cartTotalPrice',
     }),
     ...mapState({
-      isLoaded: state => state.products.isLoaded
+      isLoaded: (state) => state.products.isLoaded,
     }),
     isEmpty() {
       return this.products < 1;
-    }
+    },
   },
   data: function() {
     return {
       credentials: {
         sandbox:
-          "AUP2GZHM-a8ezi1eUrZfF93Hmrbiusi6e9UYx7_d5QJNix7h7ImOxj6VNozS1hYuYxFqE1FrvGXRPN7n"
-      }
+          'AUP2GZHM-a8ezi1eUrZfF93Hmrbiusi6e9UYx7_d5QJNix7h7ImOxj6VNozS1hYuYxFqE1FrvGXRPN7n',
+      },
     };
-  }
+  },
 };
 </script>
 
