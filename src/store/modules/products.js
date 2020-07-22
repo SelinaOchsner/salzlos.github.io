@@ -1,4 +1,4 @@
-import shop from '../../shop/products';
+import shop from '../../shop/static_products';
 
 // initial state
 const state = () => ({

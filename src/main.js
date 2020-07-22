@@ -1,48 +1,48 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
+import Vue from 'vue';
+import VueRouter from 'vue-router';
 
-import App from "./App.vue";
-import Salzlos from "./components/Salzlos";
-import Shop from "./components/Shop";
-import ProductList from "./components/ProductList";
-import ShoppingCart from "./components/Cart";
+import App from './App.vue';
+import Salzlos from './components/Salzlos';
+import Shop from './components/Shop';
+import ProductList from './components/ProductList';
+import ShoppingCart from './components/Cart';
 
-import store from "./store";
+import store from './store';
 
-import { library } from "@fortawesome/fontawesome-svg-core";
+import { library } from '@fortawesome/fontawesome-svg-core';
 import {
   faShoppingBag,
   faShoppingCart,
   faTimes,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 library.add(faShoppingBag, faShoppingCart, faTimes);
 
-Vue.component("fa-icon", FontAwesomeIcon);
+Vue.component('fa-icon', FontAwesomeIcon);
 
 Vue.config.productionTip = false;
 
 Vue.use(VueRouter);
 
 const routes = [
-  { path: "/", component: Salzlos },
+  { path: '/', component: Salzlos },
   {
-    path: "/shop",
+    path: '/shop',
     component: Shop,
     children: [
       {
-        path: "",
+        path: '',
         component: ProductList,
       },
       {
-        path: "cart",
+        path: 'cart',
         component: ShoppingCart,
       },
     ],
   },
 ];
-const mode = "history";
+const mode = 'history';
 
 const router = new VueRouter({ routes, mode });
 
@@ -50,4 +50,4 @@ new Vue({
   router,
   store,
   render: (h) => h(App),
-}).$mount("#app");
+}).$mount('#app');

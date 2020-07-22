@@ -1,5 +1,5 @@
 <template>
-  <div class="salzlos-logo">
+  <div class="salzlos-logo" @click="$router.push({ path: '/' })">
     <span class="horizontal noselect">SELINA SALZLOS</span>
     <span class="vertical noselect">berlin</span>
   </div>
@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: "SalzlosLogo",
+  name: "SalzlosLogo"
 };
 </script>
 

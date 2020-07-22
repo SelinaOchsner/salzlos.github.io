@@ -3,29 +3,25 @@
     <Button @clicked="$router.push({ path: '/shop/cart' })">
       <fa-icon icon="shopping-cart" size="lg" />
     </Button>
-    <ShopItem
-      v-for="product in products"
-      :key="product.name"
-      :product="product"
-    />
+    <ShopItem v-for="product in products" :key="product.name" :product="product" />
   </div>
 </template>
 
 <script>
-import ShopItem from './ShopItem';
-import Button from './Button';
+import ShopItem from "./ShopItem";
+import Button from "./Button";
 
-import { mapState } from 'vuex';
+import { mapState } from "vuex";
 
 export default {
-  name: 'ProductList',
+  name: "ProductList",
   components: {
     ShopItem,
-    Button,
+    Button
   },
   computed: mapState({
-    products: (state) => state.products.all,
-  }),
+    products: state => state.products.all
+  })
 };
 </script>
 

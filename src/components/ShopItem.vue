@@ -1,6 +1,6 @@
 <template>
   <div class="shop-item" @click="showDetails(product)">
-    <img :src="product.imageUrl" :alt="product.name" />
+    <img :src="url" :alt="product.name" height="350px" />
     <div class="shop-description">
       <span class="left">{{ product.name }}</span>
       <span class="right">{{ product.price }}</span>
@@ -51,7 +51,10 @@ export default {
   },
   computed: {
     style: function() {
-      return 'background-image: url("' + this.product.imageUrl + '")';
+      return `background-image: url(" ${this.url} ")`;
+    },
+    url: function() {
+      return this.product.imageUrl;
     },
     ...mapGetters("products", {
       showDetailsForId: "showDetailsForId"
