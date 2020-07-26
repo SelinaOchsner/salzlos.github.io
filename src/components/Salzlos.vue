@@ -1,43 +1,43 @@
 <template>
-  <div id="salzlos" :class="{ colorized: isColorized, black: isBlack }" @click="nextWorkpiece()">
+  <div id="salzlos" :class="{ colorized: isColorized, black: isBlack }" @click="nextView()">
     <SalzlosLogo v-if="viewIndex == 0" />
-    <Workpiece v-if="viewIndex == 1" />
-    <Workpiece v-if="viewIndex == 2" />
+    <SalzlosView v-if="viewIndex == 1" />
+    <SalzlosView v-if="viewIndex == 2" />
   </div>
 </template>
 
 <script>
-import Workpiece from "./Workpiece.vue";
+import SalzlosView from "./SalzlosView.vue";
 import SalzlosLogo from "./SalzlosLogo.vue";
 
 export default {
   name: "Salzlos",
   components: {
-    Workpiece,
-    SalzlosLogo
+    SalzlosView,
+    SalzlosLogo,
   },
-  data: function() {
+  data: function () {
     return {
       viewIndex: 0,
-      totalViews: 3
+      totalViews: 3,
     };
   },
   computed: {
-    isColorized: function() {
+    isColorized: function () {
       return this.viewIndex <= 1;
     },
-    isBlack: function() {
+    isBlack: function () {
       return !this.isColorized;
-    }
+    },
   },
   methods: {
-    nextWorkpiece: function() {
+    nextView: function () {
       if (++this.viewIndex == this.totalViews) {
         this.viewIndex = 0;
         this.$router.push({ path: "shop" });
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
