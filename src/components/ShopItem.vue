@@ -1,6 +1,6 @@
 <template>
   <div class="shop-item" @click="showDetails(product)">
-    <img :src="url" :alt="product.name" height="350px" />
+    <img :src="url" :alt="product.name" height="300px" />
     <div class="shop-description">
       <span class="left">{{ product.name }}</span>
       <span class="right">{{ product.price }}</span>
@@ -38,34 +38,34 @@ import Button from "./Button";
 export default {
   name: "ShopItem",
   components: {
-    Button
+    Button,
   },
   props: ["product"],
   methods: {
-    toggleDetails: function(event) {
+    toggleDetails: function (event) {
       event.stopPropagation();
       this.showDetails = !this.showDetails;
     },
     ...mapActions("cart", ["addProductToCart"]),
-    ...mapActions("products", ["showDetails", "hideDetails"])
+    ...mapActions("products", ["showDetails", "hideDetails"]),
   },
   computed: {
-    style: function() {
+    style: function () {
       return `background-image: url(" ${this.url} ")`;
     },
-    url: function() {
+    url: function () {
       return this.product.imageUrl;
     },
     ...mapGetters("products", {
-      showDetailsForId: "showDetailsForId"
-    })
-  }
+      showDetailsForId: "showDetailsForId",
+    }),
+  },
 };
 </script>
 
 <style lang="sass" scoped>
 .shop-item
-  width: 450px
+  width: 400px
   padding: 50px
   margin: 50px
   border: 2px solid black

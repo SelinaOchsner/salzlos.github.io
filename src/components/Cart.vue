@@ -5,17 +5,16 @@
     </Button>
     <span v-if="isLoaded && isEmpty">Your shopping cart is empty.</span>
     <div id="shopping-cart-products" v-if="isLoaded">
-      <div
-        class="shopping-cart-product"
-        v-for="product in products"
-        :key="product.name"
-      >
+      <div class="shopping-cart-product" v-for="product in products" :key="product.name">
         <div>
-          <img :src="product.thumbnail" alt="X" />
+          <img :src="product.thumbnail" width="100px" alt="X" />
         </div>
         <div style="width: 200px;">{{ product.name }}</div>
         <div>{{ product.quantity }}</div>
         <div>{{ product.price }}</div>
+        <div @click="removeProductFromCart(product)">
+          <fa-icon icon="times" size="lg" />
+        </div>
       </div>
       <br />
       <div id="order-button" @click="processOrder">
@@ -26,12 +25,12 @@
 </template>
 
 <script>
-import Button from './Button';
+import Button from "./Button";
 
-import { mapState, mapGetters, mapActions } from 'vuex';
+import { mapState, mapGetters, mapActions } from "vuex";
 
 export default {
-  name: 'ShoppingCart',
+  name: "ShoppingCart",
   components: {
     Button,
   },
@@ -39,13 +38,13 @@ export default {
     processOrder() {
       window.location.href = `mailto:info@salzlos.berlin?subject=order&body=${this.cartOrderString}`;
     },
-    ...mapActions('cart', ['checkout', 'removeProductFromCart']),
+    ...mapActions("cart", ["checkout", "removeProductFromCart"]),
   },
   computed: {
-    ...mapGetters('cart', {
-      products: 'cartProducts',
-      cartOrderString: 'cartOrderString',
-      totalPrice: 'cartTotalPrice',
+    ...mapGetters("cart", {
+      products: "cartProducts",
+      cartOrderString: "cartOrderString",
+      totalPrice: "cartTotalPrice",
     }),
     ...mapState({
       isLoaded: (state) => state.products.isLoaded,
@@ -54,11 +53,11 @@ export default {
       return this.products < 1;
     },
   },
-  data: function() {
+  data: function () {
     return {
       credentials: {
         sandbox:
-          'AUP2GZHM-a8ezi1eUrZfF93Hmrbiusi6e9UYx7_d5QJNix7h7ImOxj6VNozS1hYuYxFqE1FrvGXRPN7n',
+          "AUP2GZHM-a8ezi1eUrZfF93Hmrbiusi6e9UYx7_d5QJNix7h7ImOxj6VNozS1hYuYxFqE1FrvGXRPN7n",
       },
     };
   },
@@ -86,6 +85,7 @@ export default {
   display: flex
   flex-direction: row
   justify-content: space-around
+  align-items: center
   img
     display: inline-block
 #return-button
