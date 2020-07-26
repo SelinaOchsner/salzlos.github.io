@@ -1,5 +1,5 @@
 <template>
-  <div class="salzlos-logo" @click="$router.push({ path: '/' })">
+  <div class="salzlos-logo" @click="clickHandler">
     <span class="horizontal noselect">SELINA SALZLOS</span>
     <span class="vertical noselect">berlin</span>
   </div>
@@ -7,7 +7,12 @@
 
 <script>
 export default {
-  name: "SalzlosLogo"
+  name: "SalzlosLogo",
+  methods: {
+    clickHandler() {
+      this.$emit("clicked");
+    },
+  },
 };
 </script>
 

@@ -1,6 +1,6 @@
 <template>
   <div id="shop" class="colorized">
-    <SalzlosLogo />
+    <SalzlosLogo @clicked="$router.push({ path: '/' })" />
     <router-view></router-view>
   </div>
 </template>
@@ -13,14 +13,14 @@ import SalzlosLogo from "./SalzlosLogo";
 export default {
   name: "Shop",
   components: {
-    SalzlosLogo
+    SalzlosLogo,
   },
   computed: mapState({
-    products: state => state.products.all
+    products: (state) => state.products.all,
   }),
-  created: function() {
+  created: function () {
     this.$store.dispatch("products/getAllProducts");
-  }
+  },
 };
 </script>
 
