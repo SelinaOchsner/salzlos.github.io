@@ -1,24 +1,21 @@
 # salzlos
 
-## Project setup
-```
-npm install
-```
+## Seite anpassen
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Bilder nach `public/img/` kopieren 
 
-### Compiles and minifies for production
-```
-npm run build
-```
+In der Datei `src/shop/static_products.js` die Produktbeschreibungen hinzufügen.
+id muss einzigartig sein.
 
-### Lints and fixes files
-```
-npm run lint
-```
+## Seite testen
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+1. Terminal App öffnen
+2. `cd Documents/website/salzlos.github.io/`
+3. `npm run serve`
+4. ctrl-c zum schliessen
+
+## Seite hochladen
+
+5. `npm run build`
+6. `npm run deploy`
+
