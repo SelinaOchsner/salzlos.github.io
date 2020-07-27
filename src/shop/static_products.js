@@ -32,7 +32,7 @@ const _products = [
     description:
       'Männchen und Leiter überklimmen jedes Hindernis. Sie baumeln an: Der groben 50 cm Kette. 925er Silber.',
     price: 190,
-    imageUrl: '/img/SALZLOS4Männchen-Leiterkette.jpg',
+    imageUrl: '/img/SALZLOS4Maennchen-Leiterkette.jpg',
     inventory: 1,
   },
   {
@@ -50,7 +50,7 @@ const _products = [
     description:
       'Das Männchen ein Ebenbild unserer Selbst, stets ein treuer Begleiter. Es baumelt an: Der gröberen 50 cm Kette. 925er Silber.',
     price: 175,
-    imageUrl: '/img/SALZLOS6Männchenkette.jpg',
+    imageUrl: '/img/SALZLOS6Maennchenkette.jpg',
     inventory: 1,
   },
   {
@@ -58,7 +58,7 @@ const _products = [
     name: 'Wolke 7 Kette',
     description:
       'Der Wolke 7 Schriftzug erinnert uns jeder Zeit an unseren freien Geist. Er baumelt an: Der feinen 40 cm Kette. 925er Silber.',
-    price: 175,
+    price: 145,
     imageUrl: '/img/SALZLOS16Wolke7kette.jpg',
     inventory: 1,
   },
@@ -68,7 +68,7 @@ const _products = [
     description:
       'Die Wein Hänger ziehen mit uns um jedes Haus. Sie baumeln an: Der kleinen runden Ösenkette. 925er Silber.',
     price: 320,
-    imageUrl: '/img/SALZLOS7Weinhänger.jpg',
+    imageUrl: '/img/SALZLOS7Weinhaenger.jpg',
     inventory: 1,
   },
   {
@@ -77,7 +77,7 @@ const _products = [
     description:
       'Die Richtung Wolke 7 Hänger lassen Raum für Fantasie. Sie baumeln direkt an einer Öse. 925er Silber.',
     price: 175,
-    imageUrl: '/img/SALZLOS8Richtungwolke7hänger.jpg',
+    imageUrl: '/img/SALZLOS8Richtungwolke7haenger.jpg',
     inventory: 1,
   },
   {
@@ -86,7 +86,7 @@ const _products = [
     description:
       'Die Natur Hänger komplementieren jeden Tag wie den anderen. Sie baumeln für sich selbst. Mit einer Variation aus Achat-, Opal- und Türkisperlen. 925er Silber.',
     price: 230,
-    imageUrl: '/img/SALZLOS9Naturhänger.jpg',
+    imageUrl: '/img/SALZLOS9Naturhaenger.jpg',
     inventory: 1,
   },
   {
@@ -122,7 +122,7 @@ const _products = [
     description:
       'Das Vereint Armband schmeichelt uns allem, wie wir zusammen stehen in all unseren Farben und Formen. Hier baumeln vier unserer lieben Anhänger sowie eine Variation aus Achat-, Opal- und Türkisperlen. 925er Silber.',
     price: 405,
-    imageUrl: '/img/SALZLOS13Vereintarmband.jpg',
+    imageUrl: '/img/SALZLOS18VereintarmbandKampagne.jpg',
     inventory: 1,
   },
   {
@@ -131,7 +131,7 @@ const _products = [
     description:
       'Die Vereint Kette ist die Symbiose aus allem was wir erschaffen. Hier baumeln fünf unserer geliebten Anhänger und eine Variation aus Achat-, Opal- und Türkisperlen. 925er Silber.',
     price: 610,
-    imageUrl: '/img/SALZLOS14Vereintkette.jpg',
+    imageUrl: '/img/SALZLOS17VereintketteKampagne.jpg',
     inventory: 1,
   },
   {

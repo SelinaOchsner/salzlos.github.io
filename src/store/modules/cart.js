@@ -33,7 +33,7 @@ const getters = {
       )
       .join('%0D%0A');
     return `
-Hej liebes Salzlos Berlin,%0D%0A%0D%0A
+Hej liebes SELINA SALZLOS Berlin,%0D%0A%0D%0A
 ich möchte gerne Schmuck bei dir kaufen!%0D%0A%0D%0A
 --- --- ---%0D%0A
 ${cartProductsString}%0D%0A
