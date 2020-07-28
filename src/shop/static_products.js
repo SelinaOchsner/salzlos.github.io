@@ -59,7 +59,7 @@ const _products = [
     description:
       'Der Wolke 7 Schriftzug erinnert uns jeder Zeit an unseren freien Geist. Er baumelt an: Der feinen 40 cm Kette. 925er Silber.',
     price: 145,
-    imageUrl: '/img/SALZLOS16Wolke7kette.jpg',
+    imageUrl: '/img/SALZLOS23Wolke7kette.jpg',
     inventory: 1,
   },
   {
@@ -86,7 +86,7 @@ const _products = [
     description:
       'Die Natur Hänger komplementieren jeden Tag wie den anderen. Sie hängen für sich selbst. Mit einer Variation aus Achat-, Opal- und Türkisperlen. 925er Silber.',
     price: 230,
-    imageUrl: '/img/SALZLOS9Naturhaenger.jpg',
+    imageUrl: '/img/Shop17Naturhaenger.jpg',
     inventory: 1,
   },
   {
