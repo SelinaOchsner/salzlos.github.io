@@ -68,7 +68,7 @@ const _products = [
     description:
       'Die Wein Hänger ziehen mit uns um jedes Haus. Sie hängen an: Der kleinen runden Ösenkette. 925er Silber.',
     price: 290,
-    imageUrl: '/img/Shop7Weinhaenger.jpg',
+    imageUrl: '/img/Shop7Weinhaenger1.jpg',
     inventory: 1,
   },
   {
