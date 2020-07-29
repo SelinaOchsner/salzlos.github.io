@@ -57,7 +57,7 @@ const _products = [
     id: 6,
     name: 'Wolke 7 Kette',
     description:
-      'Der Wolke 7 Schriftzug erinnert uns jeder Zeit an unseren freien Geist. Er baumelt an: Der feinen 42 cm Kette. 925er Silber.',
+      'Der Wolke 7 Schriftzug erinnert uns jeder Zeit an unseren freien Geist. Er hängt an: Der feinen 42 cm Kette. 925er Silber.',
     price: 145,
     imageUrl: '/img/SALZLOS23Wolke7kette.jpg',
     inventory: 1,
@@ -68,7 +68,7 @@ const _products = [
     description:
       'Die Wein Hänger ziehen mit uns um jedes Haus. Sie hängen an: Der kleinen runden Ösenkette. 925er Silber.',
     price: 290,
-    imageUrl: '/img/SALZLOS22Weinhaenger.jpg',
+    imageUrl: '/img/Shop7Weinhaenger.jpg',
     inventory: 1,
   },
   {
@@ -77,7 +77,7 @@ const _products = [
     description:
       'Die Richtung Wolke 7 Hänger lassen Raum für Fantasie. Sie hängen direkt an einer Öse. 925er Silber.',
     price: 175,
-    imageUrl: '/img/SALZLOS8Richtungwolke7haenger.jpg',
+    imageUrl: '/img/Shop8Richtungwolke7haenger.jpg',
     inventory: 1,
   },
   {
@@ -121,7 +121,7 @@ const _products = [
     name: 'Vereint Armband',
     description:
       'Das Vereint Armband schmeichelt uns allen, wie wir zusammen stehen in all unseren Farben und Formen. Hier hängen vier unserer lieben Anhänger sowie eine Variation aus Achat-, Opal- und Türkisperlen. 925er Silber.',
-    price: 405,
+    price: 375,
     imageUrl: '/img/SALZLOS18VereintarmbandKampagne.jpg',
     inventory: 1,
   },
@@ -130,7 +130,7 @@ const _products = [
     name: 'Vereint Kette',
     description:
       'Die Vereint Kette ist die Symbiose aus allem was wir erschaffen. Hier hängen fünf unserer geliebten Anhänger und eine Variation aus Achat-, Opal- und Türkisperlen. 925er Silber.',
-    price: 610,
+    price: 593,
     imageUrl: '/img/SALZLOS17VereintketteKampagne.jpg',
     inventory: 1,
   },
