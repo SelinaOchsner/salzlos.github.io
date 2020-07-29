@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     processOrder() {
-      window.location.href = `mailto:info@salzlos.berlin?subject=order&body=${this.cartOrderString}`;
+      window.location.href = `mailto:info@selinasalzlos.berlin?subject=order&body=${this.cartOrderString}`;
     },
     ...mapActions("cart", ["checkout", "removeProductFromCart"]),
   },
