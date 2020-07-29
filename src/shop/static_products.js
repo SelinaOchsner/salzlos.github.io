@@ -12,7 +12,7 @@ const _products = [
     id: 1,
     name: 'Leiter Kette',
     description:
-      'Die Leiter Kette schwingt fein an deinem Hals. Sie hängt an: Der feinen 40 cm Kette. 925er Silber.',
+      'Die Leiter Kette schwingt fein an deinem Hals. Sie hängt an: Der feinen 42 cm Kette. 925er Silber.',
     price: 125,
     imageUrl: '/img/SALZLOS19LeiterketteKampagne.jpg',
     inventory: 1,
@@ -21,7 +21,7 @@ const _products = [
     id: 2,
     name: 'Wein Kette',
     description:
-      'Das Weinglas bleibt nett an deiner Seite und schwingt mit dir durchs Leben. Es hängt an: Der feinen 40 cm Kette. 925er Silber.',
+      'Das Weinglas bleibt nett an deiner Seite und schwingt mit dir durchs Leben. Es hängt an: Der feinen 42 cm Kette. 925er Silber.',
     price: 105,
     imageUrl: '/img/SALZLOS21WeinketteKampagne.jpg',
     inventory: 1,
@@ -41,7 +41,7 @@ const _products = [
     description:
       'Die 7 Kette ist unserer Glücksbringer in jeder Zeit. Sie hängt an: Der gröberen 50 cm Kette. 925er Silber.',
     price: 145,
-    imageUrl: '/img/SALZLOS5-7kette.jpg',
+    imageUrl: '/img/SALZLOS24-7kette.jpg',
     inventory: 1,
   },
   {
@@ -57,7 +57,7 @@ const _products = [
     id: 6,
     name: 'Wolke 7 Kette',
     description:
-      'Der Wolke 7 Schriftzug erinnert uns jeder Zeit an unseren freien Geist. Er baumelt an: Der feinen 40 cm Kette. 925er Silber.',
+      'Der Wolke 7 Schriftzug erinnert uns jeder Zeit an unseren freien Geist. Er baumelt an: Der feinen 42 cm Kette. 925er Silber.',
     price: 145,
     imageUrl: '/img/SALZLOS23Wolke7kette.jpg',
     inventory: 1,
@@ -67,7 +67,7 @@ const _products = [
     name: 'Die Wein Hänger',
     description:
       'Die Wein Hänger ziehen mit uns um jedes Haus. Sie hängen an: Der kleinen runden Ösenkette. 925er Silber.',
-    price: 320,
+    price: 290,
     imageUrl: '/img/SALZLOS22Weinhaenger.jpg',
     inventory: 1,
   },
@@ -95,7 +95,7 @@ const _products = [
     description:
       'Die Naturhoops sind klassisch neu arrangiert, ein echter Alltimer. Sie messen ca. 17 cm diagonal. 925er Silber.',
     price: 150,
-    imageUrl: '/img/SALZLOS10Naturhoops.jpg',
+    imageUrl: '/img/Shop10Naturhoops.jpg',
     inventory: 1,
   },
   {
@@ -103,8 +103,8 @@ const _products = [
     name: 'Natur Kette',
     description:
       'Die Natur Kette verfeinert jedes Dekoltee mit schlichter Eleganz. Sie besteht aus den länglichen Ösen und einer Variation aus Achat-, Opal- und Türkisperlen. Schließen lässt sie sich durch einen S-Haken. 925er Silber.',
-    price: 345,
-    imageUrl: '/img/SALZLOS11Naturkette.jpg',
+    price: 325,
+    imageUrl: '/img/SALZLOS26Naturkette.jpg',
     inventory: 1,
   },
   {
@@ -140,7 +140,7 @@ const _products = [
     description:
       'Drei simple Vierkantringe als Set. Ein angenehmer Begleiter in jeder Komposition. 925er Silber.',
     price: 65,
-    imageUrl: '/img/SALZLOS15Ringe.jpg',
+    imageUrl: '/img/SALZLOS25Ringe.jpg',
     inventory: 1,
   },
 ];
