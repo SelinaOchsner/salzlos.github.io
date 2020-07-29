@@ -5,7 +5,7 @@ const _products = [
     description:
       'Die Kussmund Kette verführt uns mit ihrer Kraft. Er hängt an: Der gröberen 50 cm Kette. 925er Silber.',
     price: 175,
-    imageUrl: '/img/SALZLOS1Kussmundkette.jpg',
+    imageUrl: '/img/Shop1Kussmundkette.jpg',
     inventory: 1,
   },
   {
@@ -32,7 +32,7 @@ const _products = [
     description:
       'Männchen und Leiter überklimmen jedes Hindernis. Sie hängt an: Der groben 50 cm Kette. 925er Silber.',
     price: 190,
-    imageUrl: '/img/SALZLOS4Maennchen-Leiterkette.jpg',
+    imageUrl: '/img/Shop4Maennchen-Leiterkette.jpg',
     inventory: 1,
   },
   {
@@ -50,7 +50,7 @@ const _products = [
     description:
       'Das Männchen ein Ebenbild unserer Selbst, stets ein treuer Begleiter. Es hängt an: Der gröberen 50 cm Kette. 925er Silber.',
     price: 175,
-    imageUrl: '/img/SALZLOS6Maennchenkette.jpg',
+    imageUrl: '/img/Shop6Maennchenkette.jpg',
     inventory: 1,
   },
   {
