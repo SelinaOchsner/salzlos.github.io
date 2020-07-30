@@ -50,12 +50,11 @@ export default {
   flex-direction: row
   align-items: center
   justify-content: space-around
-  color: white
+  color: black
 .header
   font-size: 3em
   margin: 0
 .colorized
-  background-image: url("../assets/bg.jpg")
   background-repeat: no-repeat
   background-size: 100% 100%
 .black
