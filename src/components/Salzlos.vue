@@ -57,7 +57,8 @@ export default {
 .colorized
   background-image: url("../assets/bg.jpg")
   background-repeat: no-repeat
-  background-size: 100% 100%
+  background-size: cover
+  background-position: 50% 50%
 .black
   background-color: white
   background-size: 100% 100%
