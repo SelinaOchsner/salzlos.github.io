@@ -74,6 +74,11 @@ body {
   width: 100%;
   height: 100%;
   margin: 0;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+::-webkit-scrollbar {
+  display: none;
 }
 
 .noselect {
