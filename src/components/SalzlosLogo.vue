@@ -1,7 +1,9 @@
 <template>
   <div class="salzlos-logo" @click="clickHandler">
-    <span class="horizontal noselect">SELINA SALZLOS</span>
-    <span class="vertical noselect">berlin</span>
+    <div>
+      <span class="horizontal noselect">SELINA SALZLOS</span>
+      <span class="vertical noselect">berlin</span>
+    </div>
   </div>
 </template>
 
@@ -18,7 +20,9 @@ export default {
 
 <style lang="sass" scoped>
 .salzlos-logo
+  width: 400px
   text-align: left
+  white-space: nowrap
 .horizontal
   font-size: 3em
   margin: 0

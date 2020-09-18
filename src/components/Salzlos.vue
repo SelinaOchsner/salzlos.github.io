@@ -1,8 +1,10 @@
 <template>
   <div id="salzlos" :class="{ colorized: isColorized, black: isBlack }" @click="nextView()">
     <SalzlosLogo v-if="viewIndex == 0" />
-    <SalzlosView v-if="viewIndex == 1" />
-    <SalzlosView v-if="viewIndex == 2" />
+    <div id="salzlos-view-container">
+      <SalzlosView v-if="viewIndex == 1" />
+      <SalzlosView v-if="viewIndex == 2" />
+    </div>
   </div>
 </template>
 
@@ -43,14 +45,19 @@ export default {
 
 <style lang="sass" scoped>
 #salzlos
-  position: fixed
-  height: 100%
-  width: 100%
+  padding: 50px
+  width: calc(100% - 100px)
+  height: calc(100% - 100px)
+#salzlos-view-container
+  position: absolute
+  top: 0px
+  left: 0px
+  bottom: 0px
+  right: 0px
   display: flex
   flex-direction: row
   align-items: center
   justify-content: space-around
-  color: white
 .header
   font-size: 3em
   margin: 0
@@ -70,5 +77,8 @@ export default {
   -ms-user-select: none
   user-select: none
 .salzlos-logo
-  transform: scaleX(3.5) scaleY(6)
+  transform: translate(50%, 66%) scale(2, 3)
+@media only screen and (max-width: 1000px)
+  .salzlos-logo
+    transform: translate(0, 33%) scale(1, 1.5)
 </style>

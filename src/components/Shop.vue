@@ -40,4 +40,9 @@ export default {
   margin-left: 10%
   font-size: 1.5em
   transform: scaleY(2)
+@media only screen and (max-width: 1000px)
+  .salzlos-logo
+    transform: translateX(-25%) scale(0.5, 1)
+    padding: 0px
+    width: 100%
 </style>

@@ -126,4 +126,29 @@ export default {
   right: 0px
 .button-bag
   margin: 0px
+@media only screen and (max-width: 1000px)
+  .shop-item
+    width: calc(90% - 100px)
+    padding: 25px
+    margin: 25px
+    img
+      width: 100%
+      height: auto
+    .slot-text
+      width: 100%
+      font-size: 0.7em
+      line-height: 8px
+  .shop-item-details
+    left: 10px
+    width: calc(100% - 50px)
+    height: 60%
+  .details-description
+    padding: 10px
+    font-size: 15px
+    h1
+      font-size: 25px !important
+    .details-slot
+      left: calc(50% + 10px)
+      right: 10px
+      bottom: 20px
 </style>

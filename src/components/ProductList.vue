@@ -17,11 +17,11 @@ export default {
   name: "ProductList",
   components: {
     ShopItem,
-    Button
+    Button,
   },
   computed: mapState({
-    products: state => state.products.all
-  })
+    products: (state) => state.products.all,
+  }),
 };
 </script>
 
@@ -42,4 +42,8 @@ export default {
   top: 0px
   right: 0px
   margin-top: 13px
+@media only screen and (max-width: 1000px)
+  #product-list
+    width: 100%
+    padding-top: 50px
 </style>
