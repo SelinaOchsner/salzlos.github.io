@@ -22,7 +22,7 @@
         <Button class="button-close" @clicked="hideDetails(product)">
           <fa-icon icon="times" size="lg" />
         </Button>
-        <Button class="button-bag" @clicked="addProductToCart(product)">
+        <Button class="button-bag" @clicked="bagCallback(product)">
           <fa-icon icon="shopping-bag" size="lg" />
         </Button>
       </div>
@@ -48,6 +48,13 @@ export default {
     },
     ...mapActions("cart", ["addProductToCart"]),
     ...mapActions("products", ["showDetails", "hideDetails"]),
+    bagCallback(product) {
+      this.addProductToCart(product);
+      this.$confirm("Das Stück ist jetzt im Warenkorb", "Nice", "Success", {
+        confirmButtonText: 'zum Warenkorb',
+        cancelButtonText: 'weiter einkaufen',
+      }).then(() => this.$router.push({ path: '/shop/cart' }))
+    }
   },
   computed: {
     style: function () {

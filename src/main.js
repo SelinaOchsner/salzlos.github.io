@@ -6,6 +6,7 @@ import Salzlos from './components/Salzlos';
 import Shop from './components/Shop';
 import ProductList from './components/ProductList';
 import ShoppingCart from './components/Cart';
+import VueSimpleAlert from 'vue-simple-alert';
 
 import store from './store';
 
@@ -24,6 +25,7 @@ Vue.component('fa-icon', FontAwesomeIcon);
 Vue.config.productionTip = false;
 
 Vue.use(VueRouter);
+Vue.use(VueSimpleAlert);
 
 const routes = [
   { path: '/', component: Salzlos },

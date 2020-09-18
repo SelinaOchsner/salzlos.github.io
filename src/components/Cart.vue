@@ -17,8 +17,16 @@
         </div>
       </div>
       <br />
-      <div id="order-button" @click="processOrder">
-        <b>O R D E R</b>
+      <div id="order-button">
+        <PayPal
+          :amount="totalPrice.toString()"
+          currency="EUR"
+          :client="credentials"
+          env="sandbox"
+          @payment-authorized="authorized"
+          @payment-completed="completed"
+          @payment-cancelled="cancelled">
+        </PayPal>
       </div>
     </div>
   </div>
@@ -26,6 +34,7 @@
 
 <script>
 import Button from "./Button";
+import PayPal from "vue-paypal-checkout";
 
 import { mapState, mapGetters, mapActions } from "vuex";
 
@@ -33,12 +42,22 @@ export default {
   name: "ShoppingCart",
   components: {
     Button,
+    PayPal,
   },
   methods: {
     processOrder() {
       window.location.href = `mailto:info@selinasalzlos.berlin?subject=order&body=${this.cartOrderString}`;
     },
     ...mapActions("cart", ["checkout", "removeProductFromCart"]),
+    authorized() {
+      this.$alert("Authorized!")
+    },
+    completed() {
+      this.$alert("Completed!")
+    },
+    cancelled() {
+      this.$alert("Something went wrong with the payment! Please try again.")
+    },
   },
   computed: {
     ...mapGetters("cart", {
