@@ -31,7 +31,7 @@ const _products = [
     name: 'Männchen Leiter Kette',
     description:
       'Männchen und Leiter überklimmen jedes Hindernis. Sie hängt an: Der groben 50 cm Kette. 925er Silber.',
-    price: 190,
+    price: 175,
     imageUrl: '/img/Shop4Maennchen-Leiterkette.jpg',
     inventory: 1,
   },
@@ -49,7 +49,7 @@ const _products = [
     name: 'Männchen Kette',
     description:
       'Das Männchen ein Ebenbild unserer Selbst, stets ein treuer Begleiter. Es hängt an: Der gröberen 50 cm Kette. 925er Silber.',
-    price: 175,
+    price: 145,
     imageUrl: '/img/Shop6Maennchenkette.jpg',
     inventory: 1,
   },
@@ -58,7 +58,7 @@ const _products = [
     name: 'Wolke 7 Kette',
     description:
       'Der Wolke 7 Schriftzug erinnert uns jeder Zeit an unseren freien Geist. Er hängt an: Der feinen 42 cm Kette. 925er Silber.',
-    price: 145,
+    price: 125,
     imageUrl: '/img/SALZLOS23Wolke7kette.jpg',
     inventory: 1,
   },
@@ -67,7 +67,7 @@ const _products = [
     name: 'Die Wein Hänger',
     description:
       'Die Wein Hänger ziehen mit uns um jedes Haus. Sie hängen an: Der kleinen runden Ösenkette. 925er Silber.',
-    price: 290,
+    price: 190,
     imageUrl: '/img/Shop7Weinhaenger1.jpg',
     inventory: 1,
   },
@@ -76,7 +76,7 @@ const _products = [
     name: 'Richtung Wolke 7 Hänger',
     description:
       'Die Richtung Wolke 7 Hänger lassen Raum für Fantasie. Sie hängen direkt an einer Öse. 925er Silber.',
-    price: 175,
+    price: 125,
     imageUrl: '/img/Shop8Richtungwolke7haenger.jpg',
     inventory: 1,
   },
@@ -85,7 +85,7 @@ const _products = [
     name: 'Natur Hänger',
     description:
       'Die Natur Hänger komplementieren jeden Tag wie den anderen. Sie hängen für sich selbst. Mit einer Variation aus Achat-, Opal- und Türkisperlen. 925er Silber.',
-    price: 230,
+    price: 145,
     imageUrl: '/img/Shop17Naturhaenger.jpg',
     inventory: 1,
   },
@@ -94,7 +94,7 @@ const _products = [
     name: 'Natur Hoops',
     description:
       'Die Naturhoops sind klassisch neu arrangiert, ein echter Alltimer. Sie messen ca. 17 cm diagonal. 925er Silber.',
-    price: 150,
+    price: 125,
     imageUrl: '/img/Shop10Naturhoops.jpg',
     inventory: 1,
   },
@@ -103,7 +103,7 @@ const _products = [
     name: 'Natur Kette',
     description:
       'Die Natur Kette verfeinert jedes Dekoltee mit schlichter Eleganz. Sie besteht aus den länglichen Ösen und einer Variation aus Achat-, Opal- und Türkisperlen. Schließen lässt sie sich durch einen S-Haken. 925er Silber.',
-    price: 325,
+    price: 245,
     imageUrl: '/img/SALZLOS26Naturkette.jpg',
     inventory: 1,
   },
@@ -112,7 +112,7 @@ const _products = [
     name: 'Natur Armband',
     description:
       'Das Natur Armband erscheint nett neben unserer Hand. Es besteht aus den länglichen Ösen und einer Variation aus Achat-, Opal- und Türkisperlen. Schließen lässt es sich durch einen S-Haken. 925er Silber.',
-    price: 205,
+    price: 175,
     imageUrl: '/img/SALZLOS20NaturarmbandKampagne.jpg',
     inventory: 1,
   },
@@ -141,6 +141,15 @@ const _products = [
       'Drei simple Vierkantringe als Set. Ein angenehmer Begleiter in jeder Komposition. 925er Silber.',
     price: 65,
     imageUrl: '/img/SALZLOS25Ringe.jpg',
+    inventory: 1,
+  },
+  {
+    id: 16,
+    name: '7 Hoops',
+    description:
+      'Die 7 Hoops sind leicht und erregen Aufmerksamkeit zu gleich. 925er Silber mit einer Variation an Opal-, Achat- und Türkisperlen.',
+    price: 195,
+    imageUrl: '/img/7-Hoops.jpg',
     inventory: 1,
   },
 ];
