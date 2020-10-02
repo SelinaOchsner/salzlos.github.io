@@ -1,5 +1,5 @@
 <template>
-  <div id="salzlos" :class="{ colorized: isColorized, black: isBlack }" @click="nextView()">
+  <div id="salzlos" :class="{ colorized: isColorized, black: isBlack }" @click="startShow()">
     <SalzlosLogo v-if="viewIndex == 0" />
     <div id="salzlos-view-container">
       <SalzlosView v-if="viewIndex == 1" />
@@ -22,6 +22,7 @@ export default {
     return {
       viewIndex: 0,
       totalViews: 3,
+      timeout: 800,
     };
   },
   computed: {
@@ -33,10 +34,15 @@ export default {
     },
   },
   methods: {
+    startShow: function() {
+      this.nextView()
+    },
     nextView: function () {
       if (++this.viewIndex == this.totalViews) {
         this.viewIndex = 0;
         this.$router.push({ path: "shop" });
+      } else {
+        setTimeout(this.nextView, this.timeout)
       }
     },
   },

@@ -33,7 +33,7 @@ export default {
   height: 80%
   flex-direction: row
   flex-wrap: wrap
-  justify-content: center
+  justify-content: space-around
   color: black
   background-color: white
   padding-top: 20px

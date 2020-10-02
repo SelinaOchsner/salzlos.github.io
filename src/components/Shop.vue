@@ -2,6 +2,11 @@
   <div id="shop" class="colorized">
     <SalzlosLogo @clicked="$router.push({ path: '/' })" />
     <router-view></router-view>
+    <div class="footer">
+      <span>Impressum</span>
+      <span>Datenschutz</span>
+      <span>Kontakt</span>
+    </div>
   </div>
 </template>
 
@@ -40,6 +45,12 @@ export default {
   margin-left: 10%
   font-size: 1.5em
   transform: scaleY(2)
+.footer
+  display: flex
+  flex-direction: row
+  justify-content: space-around
+  margin-top: 25px
+  text-decoration: underline
 @media only screen and (max-width: 1000px)
   .salzlos-logo
     transform: translateX(-25%) scale(0.5, 1)

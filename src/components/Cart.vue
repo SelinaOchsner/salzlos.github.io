@@ -118,6 +118,4 @@ export default {
   right: 100px
   border: 2px solid black
   padding: 2px 10px 2px 10px
-.button
-  opacity: 0.8
 </style>

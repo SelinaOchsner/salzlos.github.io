@@ -74,7 +74,7 @@ export default {
 .shop-item
   width: 400px
   padding: 50px
-  margin: 50px
+  margin: 50px 10px 50px 10px
   border: 2px solid black
   font-family: "letter-gothic-std"
   text-align: left
@@ -83,12 +83,13 @@ export default {
     display: flex
     flex-direction: row
     justify-content: space-between
+    line-height: 50px
     &span
       display: inline-block
   .slot-text
     width: 400px
     font-size: 0.7em
-    line-height: 8px
+    line-height: 12px
   &img
     width: 400px
     height: 300px
@@ -148,10 +149,13 @@ export default {
   .shop-item-details
     left: 10px
     width: calc(100% - 50px)
-    height: 60%
+    height: 80%
   .details-description
     padding: 10px
-    font-size: 15px
+    font-size: 12px
+    .button
+      min-width: 30px
+      min-height: 30px
     h1
       font-size: 25px !important
     .details-slot
