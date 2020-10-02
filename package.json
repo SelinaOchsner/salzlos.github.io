@@ -19,6 +19,7 @@
     "vue": "^2.6.12",
     "vue-cli": "^2.9.6",
     "vue-cli-plugin-s3-deploy": "^4.0.0-rc3",
+    "vue-cookie-law": "^1.13.3",
     "vue-paypal-checkout": "^3.2.0",
     "vue-router": "^3.4.3",
     "vue-simple-alert": "^1.1.1",

@@ -2,12 +2,18 @@
   <div id="app" class="noselect">
     <!-- <Salzlos v-if="store.state.view === 'main'" :store="store" /> -->
     <router-view></router-view>
+    <footer>
+      <cookie-law theme="base"></cookie-law>
+    </footer>
   </div>
 </template>
 
 <script>
+import CookieLaw from 'vue-cookie-law';
+
 export default {
   name: "App",
+  components: {CookieLaw}
 };
 </script>
 
