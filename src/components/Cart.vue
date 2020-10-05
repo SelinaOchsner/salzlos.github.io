@@ -22,7 +22,7 @@
           :amount="totalPrice.toString()"
           currency="EUR"
           :client="credentials"
-          env="sandbox"
+          env="production"
           @payment-authorized="authorized"
           @payment-completed="completed"
           @payment-cancelled="cancelled">
@@ -49,11 +49,10 @@ export default {
       window.location.href = `mailto:info@selinasalzlos.berlin?subject=order&body=${this.cartOrderString}`;
     },
     ...mapActions("cart", ["checkout", "removeProductFromCart"]),
-    authorized() {
-      this.$alert("Authorized!")
-    },
+    authorized() { },
     completed() {
-      this.$alert("Completed!")
+      this.products.map((product) => this.removeProductFromCart(product))
+      this.$alert("The Payment has been completed! We will contact you shortly.")
     },
     cancelled() {
       this.$alert("Something went wrong with the payment! Please try again.")
@@ -77,6 +76,8 @@ export default {
       credentials: {
         sandbox:
           "AUP2GZHM-a8ezi1eUrZfF93Hmrbiusi6e9UYx7_d5QJNix7h7ImOxj6VNozS1hYuYxFqE1FrvGXRPN7n",
+        production:
+          "AT1gs-eLsg0hod8dhywetGAR-HIzayNqg8EtdTgWSLZIYvWhwevoJMnPdnF37UNB98CCT4WxGnxBtpIz",
       },
     };
   },
