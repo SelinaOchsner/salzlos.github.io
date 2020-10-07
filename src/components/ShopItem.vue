@@ -1,5 +1,5 @@
 <template>
-  <div class="shop-item" @click="$router.push({ path: '/shop/' + product.id })">
+  <div class="shop-item" @click="$router.push({ path: '/shop/product/' + product.id })">
     <img :src="url" :alt="product.name" height="300px" />
     <div class="shop-description">
       <span class="left">{{ product.name }}</span>
