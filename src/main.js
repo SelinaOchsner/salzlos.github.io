@@ -17,6 +17,7 @@ import {
   faTimes,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import VueAnalytics from 'vue-analytics';
 
 library.add(faShoppingBag, faShoppingCart, faTimes);
 
@@ -38,6 +39,10 @@ const routes = [
         component: ProductList,
       },
       {
+        path: ':product_id',
+        component: ProductList,
+      },
+      {
         path: 'cart',
         component: ShoppingCart,
       },
@@ -47,6 +52,11 @@ const routes = [
 const mode = 'history';
 
 const router = new VueRouter({ routes, mode });
+
+Vue.use(VueAnalytics, {
+  id: 'UA-179626235-1',
+  router,
+});
 
 new Vue({
   router,

@@ -1,5 +1,5 @@
 <template>
-  <div class="shop-item" @click="showDetails(product)">
+  <div class="shop-item" @click="$router.push({ path: '/shop/' + product.id })">
     <img :src="url" :alt="product.name" height="300px" />
     <div class="shop-description">
       <span class="left">{{ product.name }}</span>
@@ -7,9 +7,9 @@
     </div>
     <div class="slot-text">{{ product.description }}</div>
     <div
-      v-if="showDetailsForId == product.id"
+      v-if="$route.params.product_id == product.id"
       class="shop-item-details"
-      @click.stop="hideDetails(product)"
+      @click.stop="$router.push({ path: '/shop' })"
     >
       <div class="details-image" :style="style"></div>
       <div class="details-description">
@@ -19,7 +19,7 @@
         <br />
         <br />
         <div class="details-slot">{{ product.description }}</div>
-        <Button class="button-close" @clicked="hideDetails(product)">
+        <Button class="button-close" @clicked="$router.push({ path: '/shop' })">
           <fa-icon icon="times" size="lg" />
         </Button>
         <Button class="button-bag" @clicked="bagCallback(product)">
