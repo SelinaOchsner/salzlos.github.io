@@ -148,8 +148,44 @@ const _products = [
     name: '7 Hoops',
     description:
       'Die 7 Hoops sind leicht und erregen Aufmerksamkeit zu gleich. 925er Silber mit einer Variation an Opal-, Achat- und Türkisperlen.',
-    price: 195,
+    price:195,
     imageUrl: '/img/7-Hoops.jpg',
+    inventory: 1,
+  },
+  {
+    id: 17,
+    name: 'Drei Männchen Hänger',
+    description:
+      'Die Drei Männchen Hänger sind eine Reihung des Männchens und ergeben ein Ornament, welches jedes Ohr noch interessanter macht. 925er Silber. Vergoldet aut Anfrage.',
+    price: 245,
+    imageUrl: '/img/Shop19Dreimaennchenhaenger.jpg',
+    inventory: 1,
+  },
+  {
+    id: 18,
+    name: 'Drei Männchen Kette',
+    description:
+      'Die Drei Männchen Kette ziert vertikal das Dekoltee. Auch hier ein wunderbares Ornament an einer leichten Kette. 925er Silber.',
+    price: 195,
+    imageUrl: '/img/Shop18Dreimaennchenkette.jpg',
+    inventory: 1,
+  },
+  {
+    id: 19,
+    name: 'Voll Wolke 7 Kette',
+    description:
+      'Die Drei Männchen Kette ziert vertikal das Dekoltee. Auch hier ein wunderbares Ornament an einer leichten Kette.',
+    price: 255,
+    imageUrl: '/img/Shop20Vollwolke7kette.jpg',
+    inventory: 1,
+  },
+  {
+    id: 20,
+    name: 'Kussmund Ring',
+    description:
+      'Der Kussmund Ring trägt sich nett an jedem Finger. Er wird verziert von einer Variation aus Opal-, Achat- und Türkisperlen. 925er Silber.',
+    price: 185,
+    imageUrl: '/img/Shop21Kussmundring.jpg',
     inventory: 1,
   },
 ];
