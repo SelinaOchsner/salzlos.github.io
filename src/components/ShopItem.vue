@@ -71,11 +71,12 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+$border-width: 5px
 .shop-item
   width: 400px
   padding: 50px
   margin: 50px 10px 50px 10px
-  border: 2px solid black
+  border: $border-width solid black
   font-family: "letter-gothic-std"
   text-align: left
   background-color: white
@@ -97,10 +98,10 @@ export default {
   position: fixed
   top: 15%
   left: 15%
-  width: calc(70% - 10px)
+  width: calc(70% - #{2 * $border-width})
   height: 70%
   background-color: white
-  border: 5px solid black
+  border: $border-width solid black
   // padding: 100px
   &img
     width: calc(50% - 100px)
@@ -135,22 +136,31 @@ export default {
 .button-bag
   margin: 0px
 @media only screen and (max-width: 1000px)
+  $border-width: 3px
   .shop-item
     width: calc(90% - 100px)
     padding: 25px
     margin: 25px
+    border-width: $border-width
     img
       width: 100%
       height: auto
     .slot-text
       width: 100%
       font-size: 0.7em
-      line-height: 8px
+      line-height: 10px
   .shop-item-details
+    top: 10px
     left: 10px
-    width: calc(100% - 50px)
-    height: 80%
+    width: calc(100% - 20px - #{2 * $border_width})
+    height: calc(100% - 20px - #{2 * $border_width})
+    border-width: $border-width
+  .details-image
+    width: 100%
+    height: 50%
   .details-description
+    width: calc(100% - 100px)
+    height: calc(50% - 100px)
     padding: 10px
     font-size: 12px
     .button
