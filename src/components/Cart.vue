@@ -7,9 +7,9 @@
     <div id="shopping-cart-products" v-if="isLoaded">
       <div class="shopping-cart-product" v-for="product in products" :key="product.name">
         <div>
-          <img :src="product.thumbnail" width="100px" alt="X" />
+          <img :src="product.thumbnail" alt="X" />
         </div>
-        <div style="width: 200px;">{{ product.name }}</div>
+        <div>{{ product.name }}</div>
         <div>{{ product.quantity }}</div>
         <div>{{ product.price }}</div>
         <div @click="removeProductFromCart(product)">
@@ -108,6 +108,7 @@ export default {
   align-items: center
   img
     display: inline-block
+    width: 100px
 #return-button
   position: absolute
   top: 0px
@@ -119,4 +120,20 @@ export default {
   right: 100px
   border: 2px solid black
   padding: 2px 10px 2px 10px
+@media only screen and (max-width: 1000px)
+  $padding: 10px
+  #order-button
+    right: 40px
+  #shopping-cart
+    width: 100%
+    padding-top: 50px
+    padding-left: $padding
+    padding-right: $padding
+  #shopping-cart-products
+    width: calc(100% - #{2 * $padding})
+    margin-top: 30px
+    margin-bottom: 30px
+    font-size: 14px
+    img
+      width: 80px
 </style>

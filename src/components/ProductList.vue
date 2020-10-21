@@ -41,9 +41,11 @@ export default {
   position: absolute
   top: 0px
   right: 0px
-  margin-top: 13px
+  margin-top: 10px
 @media only screen and (max-width: 1000px)
   #product-list
     width: 100%
     padding-top: 50px
+  .button
+    right: calc(-10% + 18px)
 </style>
