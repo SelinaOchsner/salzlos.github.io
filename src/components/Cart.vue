@@ -5,7 +5,11 @@
     </Button>
     <span v-if="isLoaded && isEmpty">Your shopping cart is empty.</span>
     <div id="shopping-cart-products" v-if="isLoaded">
-      <div class="shopping-cart-product" v-for="product in products" :key="product.name">
+      <div
+        class="shopping-cart-product"
+        v-for="product in products"
+        :key="product.name"
+      >
         <div>
           <img :src="product.thumbnail" alt="X" />
         </div>
@@ -25,7 +29,8 @@
           env="production"
           @payment-authorized="authorized"
           @payment-completed="completed"
-          @payment-cancelled="cancelled">
+          @payment-cancelled="cancelled"
+        >
         </PayPal>
       </div>
     </div>
@@ -33,13 +38,13 @@
 </template>
 
 <script>
-import Button from "./Button";
-import PayPal from "vue-paypal-checkout";
+import Button from './Button';
+import PayPal from 'vue-paypal-checkout';
 
-import { mapState, mapGetters, mapActions } from "vuex";
+import { mapState, mapGetters, mapActions } from 'vuex';
 
 export default {
-  name: "ShoppingCart",
+  name: 'ShoppingCart',
   components: {
     Button,
     PayPal,
@@ -48,21 +53,23 @@ export default {
     processOrder() {
       window.location.href = `mailto:info@selinasalzlos.berlin?subject=order&body=${this.cartOrderString}`;
     },
-    ...mapActions("cart", ["checkout", "removeProductFromCart"]),
-    authorized() { },
+    ...mapActions('cart', ['checkout', 'removeProductFromCart']),
+    authorized() {},
     completed() {
-      this.products.map((product) => this.removeProductFromCart(product))
-      this.$alert("The Payment has been completed! We will contact you shortly.")
+      this.products.map((product) => this.removeProductFromCart(product));
+      this.$alert(
+        'The Payment has been completed! We will contact you shortly.'
+      );
     },
     cancelled() {
-      this.$alert("Something went wrong with the payment! Please try again.")
+      this.$alert('Something went wrong with the payment! Please try again.');
     },
   },
   computed: {
-    ...mapGetters("cart", {
-      products: "cartProducts",
-      cartOrderString: "cartOrderString",
-      totalPrice: "cartTotalPrice",
+    ...mapGetters('cart', {
+      products: 'cartProducts',
+      cartOrderString: 'cartOrderString',
+      totalPrice: 'cartTotalPrice',
     }),
     ...mapState({
       isLoaded: (state) => state.products.isLoaded,
@@ -71,13 +78,13 @@ export default {
       return this.products < 1;
     },
   },
-  data: function () {
+  data: function() {
     return {
       credentials: {
         sandbox:
-          "AUP2GZHM-a8ezi1eUrZfF93Hmrbiusi6e9UYx7_d5QJNix7h7ImOxj6VNozS1hYuYxFqE1FrvGXRPN7n",
+          'AUP2GZHM-a8ezi1eUrZfF93Hmrbiusi6e9UYx7_d5QJNix7h7ImOxj6VNozS1hYuYxFqE1FrvGXRPN7n',
         production:
-          "AT1gs-eLsg0hod8dhywetGAR-HIzayNqg8EtdTgWSLZIYvWhwevoJMnPdnF37UNB98CCT4WxGnxBtpIz",
+          'AT1gs-eLsg0hod8dhywetGAR-HIzayNqg8EtdTgWSLZIYvWhwevoJMnPdnF37UNB98CCT4WxGnxBtpIz',
       },
     };
   },
@@ -114,6 +121,7 @@ export default {
   top: 0px
   right: 0px
   margin-top: 10px
+  margin-right: 10px
 #order-button
   position: absolute
   bottom: 20px
@@ -125,7 +133,7 @@ export default {
   #order-button
     right: 40px
   #shopping-cart
-    width: 100%
+    width: calc(100% - #{2 * $padding})
     padding-top: 50px
     padding-left: $padding
     padding-right: $padding

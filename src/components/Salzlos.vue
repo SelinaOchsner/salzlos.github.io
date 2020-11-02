@@ -1,7 +1,21 @@
 <template>
-  <div id="salzlos" :class="{ colorized: isColorized, black: isBlack }" @click="startShow()">
+  <div
+    id="salzlos"
+    :class="{ colorized: isColorized, black: isBlack }"
+    @click="clickNext()"
+  >
     <SalzlosLogo v-if="viewIndex == 0" />
     <div id="salzlos-view-container">
+      <img
+        src="img/campaign/Selina_Salzlos_LowRes-11-.jpg"
+        alt="campaign1"
+        v-if="viewIndex == 1"
+      />
+      <img
+        src="img/campaign/WOLKE716Kamp.Look2Ausschnitt.jpg"
+        alt="campaign2"
+        v-if="viewIndex == 2"
+      />
       <SalzlosView v-if="viewIndex == 1" />
       <SalzlosView v-if="viewIndex == 2" />
     </div>
@@ -9,16 +23,16 @@
 </template>
 
 <script>
-import SalzlosView from "./SalzlosView.vue";
-import SalzlosLogo from "./SalzlosLogo.vue";
+import SalzlosView from './SalzlosView.vue';
+import SalzlosLogo from './SalzlosLogo.vue';
 
 export default {
-  name: "Salzlos",
+  name: 'Salzlos',
   components: {
     SalzlosView,
     SalzlosLogo,
   },
-  data: function () {
+  data: function() {
     return {
       viewIndex: 0,
       totalViews: 3,
@@ -26,23 +40,29 @@ export default {
     };
   },
   computed: {
-    isColorized: function () {
-      return this.viewIndex <= 1;
+    isColorized: function() {
+      return this.viewIndex < 1;
     },
-    isBlack: function () {
+    isBlack: function() {
       return !this.isColorized;
     },
   },
   methods: {
     startShow: function() {
-      this.nextView()
+      this.nextView();
     },
-    nextView: function () {
+    nextView: function() {
       if (++this.viewIndex == this.totalViews) {
         this.viewIndex = 0;
-        this.$router.push({ path: "shop" });
+        this.$router.push({ path: 'shop' });
       } else {
-        setTimeout(this.nextView, this.timeout)
+        setTimeout(this.nextView, this.timeout);
+      }
+    },
+    clickNext: function() {
+      if (++this.viewIndex == this.totalViews) {
+        this.viewIndex = 0;
+        this.$router.push({ path: 'shop' });
       }
     },
   },
@@ -64,6 +84,9 @@ export default {
   flex-direction: row
   align-items: center
   justify-content: space-around
+  img
+    max-width: 100%
+    max-height: 100%
 .header
   font-size: 3em
   margin: 0
@@ -71,7 +94,7 @@ export default {
   background-image: url("../assets/bg.jpg")
   background-repeat: no-repeat
   background-size: cover
-  background-position: 50% 50%
+  background-position: 50% 45%
 .black
   background-color: white
   background-size: 100% 100%
@@ -83,8 +106,13 @@ export default {
   -ms-user-select: none
   user-select: none
 .salzlos-logo
-  transform: translate(50%, 66%) scale(2, 3)
+  position: absolute
+  bottom: 50px
+  left: 50px
+  transform: translate(50%, -66%) scale(2, 3)
 @media only screen and (max-width: 1000px)
   .salzlos-logo
     transform: translate(0, 33%) scale(1, 1.5)
+    left: 20px
+    bottom: 20px
 </style>

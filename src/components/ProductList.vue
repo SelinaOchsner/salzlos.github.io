@@ -3,18 +3,22 @@
     <Button @clicked="$router.push({ path: '/shop/cart' })">
       <fa-icon icon="shopping-cart" size="lg" />
     </Button>
-    <ShopItem v-for="product in products" :key="product.name" :product="product" />
+    <ShopItem
+      v-for="product in products"
+      :key="product.name"
+      :product="product"
+    />
   </div>
 </template>
 
 <script>
-import ShopItem from "./ShopItem";
-import Button from "./Button";
+import ShopItem from './ShopItem';
+import Button from './Button';
 
-import { mapState } from "vuex";
+import { mapState } from 'vuex';
 
 export default {
-  name: "ProductList",
+  name: 'ProductList',
   components: {
     ShopItem,
     Button,
@@ -42,10 +46,9 @@ export default {
   top: 0px
   right: 0px
   margin-top: 10px
+  margin-right: 10px
 @media only screen and (max-width: 1000px)
   #product-list
     width: 100%
     padding-top: 50px
-  .button
-    right: calc(-10% + 18px)
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div id="shop" class="colorized">
+  <div id="shop" class="black">
     <SalzlosLogo @clicked="$router.push({ path: '/' })" />
     <router-view></router-view>
     <div class="footer">
@@ -11,20 +11,20 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState } from 'vuex';
 
-import SalzlosLogo from "./SalzlosLogo";
+import SalzlosLogo from './SalzlosLogo';
 
 export default {
-  name: "Shop",
+  name: 'Shop',
   components: {
     SalzlosLogo,
   },
   computed: mapState({
     products: (state) => state.products.all,
   }),
-  created: function () {
-    this.$store.dispatch("products/getAllProducts");
+  created: function() {
+    this.$store.dispatch('products/getAllProducts');
   },
 };
 </script>
@@ -39,6 +39,8 @@ export default {
   background-size: cover
   background-position: 50% 50%
   background-attachment: fixed
+.black
+  background-color: #a0a0a0
 .salzlos-logo
   padding-top: 50px
   padding-bottom: 50px

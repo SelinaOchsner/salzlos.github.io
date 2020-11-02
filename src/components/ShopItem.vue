@@ -1,5 +1,8 @@
 <template>
-  <div class="shop-item" @click="$router.push({ path: '/shop/product/' + product.id })">
+  <div
+    class="shop-item"
+    @click="$router.push({ path: '/shop/product/' + product.id })"
+  >
     <img :src="url" :alt="product.name" height="300px" />
     <div class="shop-description">
       <span class="left">{{ product.name }}</span>
@@ -31,47 +34,47 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { mapActions, mapGetters } from 'vuex';
 
-import Button from "./Button";
+import Button from './Button';
 
 export default {
-  name: "ShopItem",
+  name: 'ShopItem',
   components: {
     Button,
   },
-  props: ["product"],
+  props: ['product'],
   methods: {
-    toggleDetails: function (event) {
+    toggleDetails: function(event) {
       event.stopPropagation();
       this.showDetails = !this.showDetails;
     },
-    ...mapActions("cart", ["addProductToCart"]),
-    ...mapActions("products", ["showDetails", "hideDetails"]),
+    ...mapActions('cart', ['addProductToCart']),
+    ...mapActions('products', ['showDetails', 'hideDetails']),
     bagCallback(product) {
       this.addProductToCart(product);
-      this.$confirm("Das Stück ist jetzt im Warenkorb", "Nice", "Success", {
+      this.$confirm('Das Stück ist jetzt im Warenkorb', 'Nice', 'Success', {
         confirmButtonText: 'zum Warenkorb',
         cancelButtonText: 'weiter einkaufen',
-      }).then(() => this.$router.push({ path: '/shop/cart' }))
-    }
+      }).then(() => this.$router.push({ path: '/shop/cart' }));
+    },
   },
   computed: {
-    style: function () {
+    style: function() {
       return `background-image: url(" ${this.url} ")`;
     },
-    url: function () {
+    url: function() {
       return this.product.imageUrl;
     },
-    ...mapGetters("products", {
-      showDetailsForId: "showDetailsForId",
+    ...mapGetters('products', {
+      showDetailsForId: 'showDetailsForId',
     }),
   },
 };
 </script>
 
 <style lang="sass" scoped>
-$border-width: 5px
+$border-width: 3px
 .shop-item
   width: 400px
   padding: 50px
