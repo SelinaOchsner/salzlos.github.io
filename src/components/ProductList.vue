@@ -33,13 +33,13 @@ export default {
 #product-list
   display: inline-flex
   position: relative
-  width: 80%
+  width: 95%
   height: 80%
   flex-direction: row
   flex-wrap: wrap
-  justify-content: space-around
+  justify-content: center
   color: black
-  background-color: white
+  // background-color: white
   padding-top: 20px
 .button
   position: absolute

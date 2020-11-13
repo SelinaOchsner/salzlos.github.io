@@ -40,13 +40,14 @@ export default {
   background-position: 50% 50%
   background-attachment: fixed
 .black
-  background-color: #a0a0a0
+  background-color: #f1ddcf
 .salzlos-logo
   padding-top: 50px
   padding-bottom: 50px
   margin-left: 10%
   font-size: 1.5em
-  transform: scaleY(2)
+  transform: scaleY(2) scale(2) translate(4%, 8%)
+  color: white
 .footer
   display: flex
   flex-direction: row

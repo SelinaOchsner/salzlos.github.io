@@ -3,7 +3,7 @@
     class="shop-item"
     @click="$router.push({ path: '/shop/product/' + product.id })"
   >
-    <img :src="url" :alt="product.name" height="300px" />
+    <img :src="url" :alt="product.name" width="600px" />
     <div class="shop-description">
       <span class="left">{{ product.name }}</span>
       <span class="right">{{ product.price }}</span>
@@ -76,13 +76,14 @@ export default {
 <style lang="sass" scoped>
 $border-width: 3px
 .shop-item
-  width: 400px
-  padding: 50px
-  margin: 50px 10px 50px 10px
-  border: $border-width solid black
+  width: 600px
+  // padding: 50px
+  margin: 150px 80px 100px 80px
+  // border: $border-width solid black
   font-family: "letter-gothic-std"
   text-align: left
-  background-color: white
+  font-size: 2.2em
+  // background-color: white
   .shop-description
     display: flex
     flex-direction: row
@@ -91,12 +92,13 @@ $border-width: 3px
     &span
       display: inline-block
   .slot-text
-    width: 400px
-    font-size: 0.7em
-    line-height: 12px
+    width: 600px
+    font-size: 0.8em
+    line-height: 30px
+    text-align: justify
   &img
-    width: 400px
-    height: 300px
+    width: 500px
+    height: 380px
 .shop-item-details
   position: fixed
   top: 15%
@@ -108,6 +110,7 @@ $border-width: 3px
   // padding: 100px
   &img
     width: calc(50% - 100px)
+  font-size: 0.6em
 .details-image
   display: inline-block
   width: 50%
@@ -151,7 +154,7 @@ $border-width: 3px
     .slot-text
       width: 100%
       font-size: 0.7em
-      line-height: 10px
+      line-height: 25px
   .shop-item-details
     top: 10px
     left: 10px

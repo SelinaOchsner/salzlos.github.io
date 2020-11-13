@@ -95,7 +95,7 @@ export default {
 #shopping-cart
   display: inline-flex
   position: relative
-  width: calc(80% - 30px)
+  width: calc(95% - 30px)
   padding-top: 30px
   padding-bottom: 30px
   padding-left: 30px

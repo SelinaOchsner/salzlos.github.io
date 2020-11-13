@@ -96,7 +96,7 @@ export default {
   background-size: cover
   background-position: 50% 45%
 .black
-  background-color: white
+  background-color: #f1ddcf
   background-size: 100% 100%
 .noselect
   -webkit-touch-callout: none

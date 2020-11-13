@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "SalzlosView",
+  name: 'SalzlosView',
 };
 </script>
 
@@ -20,6 +20,5 @@ export default {
   font-family: "letter-gothic-std"
   width: 50%
   height: 50%
-  background-color: white
   color: black
 </style>
