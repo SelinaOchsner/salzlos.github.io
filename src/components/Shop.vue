@@ -3,8 +3,10 @@
     <SalzlosLogo @clicked="$router.push({ path: '/' })" />
     <router-view></router-view>
     <div class="footer">
-      <span>Impressum</span>
-      <span>Datenschutz</span>
+      <span @click="$router.push({ path: '/shop/impressum' })">Impressum</span>
+      <span @click="$router.push({ path: '/shop/datenschutz' })"
+        >Datenschutz</span
+      >
       <span>Kontakt</span>
     </div>
   </div>
@@ -46,7 +48,8 @@ export default {
   padding-bottom: 50px
   margin-left: 10%
   font-size: 1.5em
-  transform: scaleY(2) scale(2) translate(4%, 8%)
+  transform: scaleY(2) scale(2)
+  transform-origin: 25% 40%
   color: white
 .footer
   display: flex
@@ -56,7 +59,8 @@ export default {
   text-decoration: underline
 @media only screen and (max-width: 1000px)
   .salzlos-logo
-    transform: translateX(-25%) scale(0.5, 1)
+    transform: scale(0.78,1.5)
+    transform-origin: -20% 50%
     padding: 0px
     width: 100%
 </style>

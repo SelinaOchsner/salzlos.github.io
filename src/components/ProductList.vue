@@ -33,7 +33,7 @@ export default {
 #product-list
   display: inline-flex
   position: relative
-  width: 95%
+  width: 100%
   height: 80%
   flex-direction: row
   flex-wrap: wrap

@@ -78,7 +78,7 @@ $border-width: 3px
 .shop-item
   width: 600px
   // padding: 50px
-  margin: 150px 80px 100px 80px
+  margin: 150px 50px 100px 50px
   // border: $border-width solid black
   font-family: "letter-gothic-std"
   text-align: left
@@ -144,9 +144,9 @@ $border-width: 3px
 @media only screen and (max-width: 1000px)
   $border-width: 3px
   .shop-item
-    width: calc(90% - 100px)
+    width: 100%
     padding: 25px
-    margin: 25px
+    margin: 0px
     border-width: $border-width
     img
       width: 100%

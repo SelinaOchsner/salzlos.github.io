@@ -6,6 +6,8 @@ import Salzlos from './components/Salzlos';
 import Shop from './components/Shop';
 import ProductList from './components/ProductList';
 import ShoppingCart from './components/Cart';
+import Impressum from './components/Impressum';
+import Datenschutz from './components/Datenschutz';
 import VueSimpleAlert from 'vue-simple-alert';
 
 import store from './store';
@@ -45,6 +47,14 @@ const routes = [
       {
         path: 'cart',
         component: ShoppingCart,
+      },
+      {
+        path: 'impressum',
+        component: Impressum,
+      },
+      {
+        path: 'datenschutz',
+        component: Datenschutz,
       },
     ],
   },
