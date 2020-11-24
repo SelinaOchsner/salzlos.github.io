@@ -8,6 +8,7 @@ import ProductList from './components/ProductList';
 import ShoppingCart from './components/Cart';
 import Impressum from './components/Impressum';
 import Datenschutz from './components/Datenschutz';
+import Kontakt from './components/Kontakt';
 import VueSimpleAlert from 'vue-simple-alert';
 
 import store from './store';
@@ -55,6 +56,10 @@ const routes = [
       {
         path: 'datenschutz',
         component: Datenschutz,
+      },
+      {
+        path: 'kontakt',
+        component: Kontakt,
       },
     ],
   },

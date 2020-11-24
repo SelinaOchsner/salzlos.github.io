@@ -7,7 +7,7 @@
       <span @click="$router.push({ path: '/shop/datenschutz' })"
         >Datenschutz</span
       >
-      <span>Kontakt</span>
+      <span @click="$router.push({ path: '/shop/kontakt' })">Kontakt</span>
     </div>
   </div>
 </template>
