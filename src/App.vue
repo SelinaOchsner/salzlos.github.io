@@ -12,8 +12,8 @@
 import CookieLaw from 'vue-cookie-law';
 
 export default {
-  name: "App",
-  components: {CookieLaw}
+  name: 'App',
+  components: { CookieLaw },
 };
 </script>
 
@@ -64,6 +64,7 @@ html, body
   margin: 0
   -ms-overflow-style: none
   scrollbar-width: none
+  background-color: #f1ddcf
 
 \::-webkit-scrollbar
   display: none

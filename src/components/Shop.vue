@@ -44,13 +44,9 @@ export default {
 .black
   background-color: #f1ddcf
 .salzlos-logo
-  padding-top: 50px
-  padding-bottom: 50px
-  margin-left: 10%
-  font-size: 1.5em
-  transform: scaleY(2) scale(2)
-  transform-origin: 25% 40%
-  color: white
+  width: 800px
+  height: 280px
+  margin-left: 50px
 .footer
   display: flex
   flex-direction: row
@@ -59,8 +55,8 @@ export default {
   text-decoration: underline
 @media only screen and (max-width: 1000px)
   .salzlos-logo
-    transform: scale(0.78,1.5)
-    transform-origin: -20% 50%
-    padding: 0px
-    width: 100%
+    width: 290px
+    height: 90px
+    margin-top: 20px
+    margin-left: 20px
 </style>

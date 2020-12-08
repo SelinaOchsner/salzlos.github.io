@@ -78,7 +78,7 @@ $border-width: 3px
 .shop-item
   width: 600px
   // padding: 50px
-  margin: 150px 50px 100px 50px
+  margin: 100px 50px 150px 50px
   // border: $border-width solid black
   font-family: "letter-gothic-std"
   text-align: left

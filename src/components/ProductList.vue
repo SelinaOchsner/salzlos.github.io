@@ -39,8 +39,6 @@ export default {
   flex-wrap: wrap
   justify-content: center
   color: black
-  // background-color: white
-  padding-top: 20px
 .button
   position: absolute
   top: 0px

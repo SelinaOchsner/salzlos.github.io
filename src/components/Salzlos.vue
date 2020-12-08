@@ -3,6 +3,7 @@
     id="salzlos"
     :class="{ colorized: isColorized, black: isBlack }"
     @click="clickNext()"
+    @scroll.passive="clickNext()"
   >
     <SalzlosLogo v-if="viewIndex == 0" />
     <div id="salzlos-view-container">
@@ -36,7 +37,8 @@ export default {
     return {
       viewIndex: 0,
       totalViews: 3,
-      timeout: 800,
+      timeout: 1500,
+      scrollEnabled: true,
     };
   },
   computed: {
@@ -65,6 +67,21 @@ export default {
         this.$router.push({ path: 'shop' });
       }
     },
+    scrollNext: function() {
+      if (this.scrollEnabled) {
+        this.scrollEnabled = false;
+        this.clickNext();
+        window.setTimeout(
+          (() => {
+            this.scrollEnabled = true;
+          }).bind(this),
+          500
+        );
+      }
+    },
+  },
+  mounted: function() {
+    setTimeout(this.nextView, this.timeout);
   },
 };
 </script>
@@ -85,7 +102,7 @@ export default {
   align-items: center
   justify-content: space-around
   img
-    max-width: 100%
+    max-width: 80%
     max-height: 100%
 .header
   font-size: 3em
@@ -109,10 +126,12 @@ export default {
   position: absolute
   bottom: 50px
   left: 50px
-  transform: translate(50%, -66%) scale(2, 3)
+  width: 570px
+  height: 200px
 @media only screen and (max-width: 1000px)
   .salzlos-logo
-    transform: translate(0, 33%) scale(1, 1.5)
     left: 20px
     bottom: 20px
+    width: 250px
+    height: 80px
 </style>
